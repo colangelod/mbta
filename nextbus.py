@@ -56,7 +56,8 @@ def main():
     pool.join()
     time.sleep(5)
     with open("nextbus.json", "w") as file:
-        pprint(routes, stream=file)
+        #pprint(routes, stream=file)
+        json.dump(routes, file, indent=4, sort_keys=True)
 
 def worker(stop,tag):
     try:

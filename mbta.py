@@ -31,12 +31,10 @@ def main():
     for mode in js_res['mode']:
         if mode['route_type'] in ROUTE_TYPES:
             for route in mode['route']:
-                print route['route_id']
+                route_id = route['route_id']
+                print route_id
                 res = urllib2.urlopen(URL.format(CMD_SCHEDULE_BY_ROOT)+"&route={0}&datetime={1}".format(route['route_id'], int(time.time())))
                 schd = json.load(res)
-                for direction in schd['direction']:
-                        for trip in direction['trip']:
-                            pool.apply_async(get_directions, (trip,))
                 alert_res = False
                 try:
                     res = urllib2.urlopen(URL.format(CMD_ALERTS)+"&route={0}".format(route['route_id']))
@@ -45,32 +43,41 @@ def main():
                     pass
                 except AttributeError:
                     pass
-
-                routes.append({
-                    route['route_id']: route['route_name'],
+                temp = {}
+                temp.update({
+                    "route_id": route['route_id'],
+                    "route_title": route['route_name'],
                     "directions": schd['direction'],
-                    "trips": trip_res,
-                    "alerts": alert_res
+                    "alerts": alert_res,
+                    "predictions": []
                 })
+                for direction in schd['direction']:
+                    for trip in direction['trip']:
+                        #pool.apply_async(get_directions, (trip, route_id,))
+                        try:
+                            res = urllib2.urlopen(URL.format(CMD_PREDICTIONS)+"&trip={0}".format(trip['trip_id']))
+                            temp['predictions'].append(json.load(res))
+                        except urllib2.HTTPError:
+                            pass
+                        except AttributeError:
+                            pass
+                        except Exception as e:
+                            print(e)
+
+                routes.append(temp)
 
 
     pool.close()
     pool.join()
-    time.sleep(5)
     with open("mbta.json", "w") as out:
-        pprint(routes, stream=out)
+        #pprint(routes, stream=out)
+        json.dump(routes, out, indent=4, sort_keys=True)
 
 
-def get_directions(trip):
-    try:
-        res = urllib2.urlopen(URL.format(CMD_PREDICTIONS)+"&trip={0}".format(trip['trip_id']))
-        trip_res.append(json.load(res))
-    except urllib2.HTTPError:
-        pass
-    except AttributeError:
-        pass
-    except Exception:
-        pass
+def get_directions(trip, route_id):
+    pass
 
 if __name__ == "__main__":
+    t0 = time.time()
     main()
+    print time.time() - t0
