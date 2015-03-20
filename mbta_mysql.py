@@ -1,7 +1,8 @@
 __author__ = 'Neil'
 
-import MySQLdb
+#port MySQLdb
 import json
+from pprint import pprint
 
 file = open("mbta.json", "r")
 
@@ -14,7 +15,7 @@ for train in json_data:
     alerts = train['alerts']
     predictions = train['predictions']
 
-    print route_id, route_title
+    #print route_id, route_title
 
     for direction in directions:
         direction_id = direction['direction_id']
@@ -23,42 +24,40 @@ for train in json_data:
 
         #print direction_id, direction_name
 
-        for trip in trips:
-            trip_id = trip['trip_id']
-            trip_name = trip['trip_name']
-            stops = trip['stop']
-            print trip
-
-            #print trip_id, trip_name
-
-            for stop in stops:
-                stop_sequence = stop['stop_sequence']
-                sch_dep_dt = stop['sch_dep_dt']
-                sch_arr_dt = stop['sch_arr_dt']
-                stop_name = stop['stop_name']
-                stop_id = stop['stop_id']
-
-                #print stop_sequence, stop_id, stop_name
 
     for prediction in predictions:
+        already_trip = False
+        #pprint(prediction)
         direction_name = prediction['direction_name']
         route_id = prediction['route_id']
         route_type = prediction['route_type']
         trip_id = prediction['trip_id']
         mode_name = prediction['mode_name']
         trip_name = prediction['trip_name']
-        vehicle_id = prediction['vehicle']['vehicle_id']
-        vehicle_lat = prediction['vehicle']['vehicle_lat']
-        vehicle_lon = prediction['vehicle']['vehicle_lon']
-        vehicle_bearing = prediction['vehicle']['vehicle_bearing']
-        vehicle_timestamp = prediction['vehicle']['vehicle_timestamp']
+        trip_headsign = prediction['trip_headsign']
 
-        #insert into TrainLocations (TrainLAT, TrainLon,TrainTrips_TripID,TrainTrips_RouteId,TrainTrips,VehicleID)
+        if "vehicle" in prediction:
+            vehicle_id = prediction['vehicle']['vehicle_id']
+            vehicle_lat = prediction['vehicle']['vehicle_lat']
+            vehicle_lon = prediction['vehicle']['vehicle_lon']
+            vehicle_bearing = prediction['vehicle']['vehicle_bearing']
+            vehicle_timestamp = prediction['vehicle']['vehicle_timestamp']
+
+            if not already_trip:
+                print "insert into TrainTrips " \
+                    "(TripID, RouteId, VehicleId, TripHeadsign) " \
+                    "VALUES ('%(trip_id)s', '%(route_id)s', '%(vehicle_id)s', '%(trip_headsign)s')" % vars()
+                already_trip = True
+
+            print "insert into TrainLocations " \
+                  "(TrainLAT, TrainLon,TrainTrips_TripID,TrainTrips_RouteId,TrainTrips,VehicleID) " \
+                  "VALUES ('%(vehicle_lat)s', '%(vehicle_lon)s', '%(trip_id)s', '%(route_id)s', '%(vehicle_id)s'" % vars()
 
         for stop in prediction['stop']:
             pre_away = stop['pre_away']
             stop_sequence = stop['stop_sequence']
             stop_name = stop['stop_name']
             stop_id = stop['stop_id']
-            #insert into TrainStops (TripID, StopID, StopName, StopSequence, PredAway)
+            print "insert into TrainStops (TripID, StopID, StopName, StopSequence, PredAway) " \
+                  "VALUES ('%(trip_id)s', '%(stop_id)s', '%(stop_name)s', '%(stop_sequence)s', '%(pre_away)s')" % vars()
     print "\n\n"
