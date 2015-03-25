@@ -17,7 +17,10 @@ for train in json_data:
     directions = train['directions']
     alerts = train['alerts']
     predictions = train['predictions']
-    cursor.execute( "insert into TrainRoutes (RouteID, RouteName, ModeName) VALUES (%s,%s,%s)", (route_id, route_title, mode_name))
+    cursor.execute( "select RouteID from TrainRoutes where RouteID = (%s)", [route_id])
+    res = cursor.fetchone()
+    if res is None:
+        cursor.execute( "insert into TrainRoutes (RouteID, RouteName, ModeName) VALUES (%s,%s,%s)", (route_id, route_title, mode_name))
     #print route_id, route_title
 
     for direction in directions:
@@ -49,11 +52,17 @@ for train in json_data:
             vehicle_timestamp = prediction['vehicle']['vehicle_timestamp']
 
             if not already_trip:
-                cursor.execute( "insert into TrainTrips (TripID, RouteId, VehicleId, TripHeadsign) VALUES (%s,%s,%s,%s)", (trip_id, route_id, vehicle_id, trip_headsign ))  #  % vars()
+                cursor.execute( "select TripID from TrainTrips where TripID = (%s)", [trip_id])
+                res = cursor.fetchone()
+                if res is None:
+                    cursor.execute( "insert into TrainTrips (TripID, RouteId, VehicleId, TripHeadsign) VALUES (%s,%s,%s,%s)", (trip_id, route_id, vehicle_id, trip_headsign ))  #  % vars()
                 already_trip = True
-
-            cursor.execute( "insert into TrainLocations (TrainLAT, TrainLon,TripID,RouteId,VehicleID) VALUES (%s,%s,%s,%s,%s)", (vehicle_lat,vehicle_lon,trip_id,route_id,vehicle_id) )#  % vars()
-
+            cursor.execute( "select VehicleID from TrainLocations where VehicleID = (%s) and TripID = (%s)", (vehicle_id, trip_id))
+            res = cursor.fetchone()
+            if res is None:
+                cursor.execute( "insert into TrainLocations (TrainLAT, TrainLon,TripID,RouteId,VehicleID) VALUES (%s,%s,%s,%s,%s)", (vehicle_lat,vehicle_lon,trip_id,route_id,vehicle_id) )#  % vars()
+           # else
+             #   cursor.execute( "")                    //////ADD THIS SHIT IN MOTHER FUCKER. 7. IT'S AN UPDATE - NEIL
             stop_ids = []
             for stop in prediction['stop']:
                 pre_away = stop['pre_away']
@@ -62,7 +71,11 @@ for train in json_data:
                 stop_id = stop['stop_id']
                 if stop_id not in stop_ids:
                     stop_ids.append(stop_id)
-                    cursor.execute( "insert into TripStops (TripID, StopID, StopName, StopSequence, PredAway) VALUES (%s,%s,%s,%s,%s)",(trip_id,stop_id,stop_name,stop_sequence,pre_away))  # % vars()
+                    cursor.execute( "select TripID from TripStops where TripID = (%s) and StopID = (%s)", (trip_id, stop_id))
+                    res = cursor.fetchone()
+                    if res is None:
+                        cursor.execute( "insert into TripStops (TripID, StopID, StopName, StopSequence, PredAway) VALUES (%s,%s,%s,%s,%s)",(trip_id,stop_id,stop_name,stop_sequence,pre_away))  # % vars()
+
     print "\n\n"
 
 
