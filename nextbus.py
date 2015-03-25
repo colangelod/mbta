@@ -1,6 +1,3 @@
-__author__ = 'Neil'
-
-
 from pprint import pprint
 import xml.etree.ElementTree as ET
 import json

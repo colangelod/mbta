@@ -1,5 +1,3 @@
-__author__ = 'Neil'
-
 from pprint import pprint
 import json
 import urllib2
@@ -11,7 +9,7 @@ pool_size = 35
 pool = Pool(pool_size)
 
 
-URL="http://realtime.mbta.com/developer/api/v2/{0}?api_key=wX9NwuHnZU2ToO7GmGR9uw&format=json"
+URL="http://realtime.mbta.com/developer/api/v2/{0}?api_key=3yCIHX5F2ketSKY0T6s0LA&format=json"
 
 ROUTE_TYPES = ['0', '1']
 
