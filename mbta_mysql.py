@@ -75,7 +75,15 @@ for train in json_data:
                     res = cursor.fetchone()
                     if res is None:
                         cursor.execute( "insert into TripStops (TripID, StopID, StopName, StopSequence, PredAway) VALUES (%s,%s,%s,%s,%s)",(trip_id,stop_id,stop_name,stop_sequence,pre_away))  # % vars()
-
+    route_id = alerts['route_id']
+    route_name = alerts['route_name']
+    for alert in alerts['alerts']:
+        alert_id = alert['alert_id']
+        alert_text = alert['header_text']
+        cursor.execute( "select AlertID from Alerts where RouteID = (%s) and AlertID = (%s)", (route_id, alert_id))
+        res = cursor.fetchone()
+        if res is None:
+            cursor.execute( "insert into Alerts (RouteID, AlertID, AlertText) values (%s,%s,%s)", (route_id, alert_id, alert_text))
     print "\n\n"
 
 
