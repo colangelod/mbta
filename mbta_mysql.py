@@ -11,11 +11,14 @@ json_data = json.load(file)
 for train in json_data:
     route_id = train['route_id']
     route_title = train['route_title']
+    mode_name = train['mode_name']
     directions = train['directions']
     alerts = train['alerts']
     predictions = train['predictions']
 
-    #print route_id, route_title
+    print "INSERT INTO TrainRoutes " \
+          "(RouteID, RouteName, ModeName) " \
+          "VALUES ('%(route_id)s', '%(route_title)s', '%(mode_name)s');" % vars()
 
     for direction in directions:
         direction_id = direction['direction_id']
@@ -44,20 +47,31 @@ for train in json_data:
             vehicle_timestamp = prediction['vehicle']['vehicle_timestamp']
 
             if not already_trip:
-                print "insert into TrainTrips " \
-                    "(TripID, RouteId, VehicleId, TripHeadsign) " \
-                    "VALUES ('%(trip_id)s', '%(route_id)s', '%(vehicle_id)s', '%(trip_headsign)s')" % vars()
+                print "INSERT INTO TrainTrips " \
+                    "(TripID, RouteID, VehicleID, TripHeadsign) " \
+                    "VALUES ('%(trip_id)s', '%(route_id)s', '%(vehicle_id)s', '%(trip_headsign)s');" % vars()
                 already_trip = True
 
-            print "insert into TrainLocations " \
-                  "(TrainLAT, TrainLon,TrainTrips_TripID,TrainTrips_RouteId,TrainTrips,VehicleID) " \
-                  "VALUES ('%(vehicle_lat)s', '%(vehicle_lon)s', '%(trip_id)s', '%(route_id)s', '%(vehicle_id)s'" % vars()
+            print "INSERT INTO TrainLocations " \
+                  "(TrainLAT, TrainLon,TrainTrips_TripID,TrainTrips_RouteID,TrainTrips,VehicleID) " \
+                  "VALUES ('%(vehicle_lat)s', '%(vehicle_lon)s', '%(trip_id)s', '%(route_id)s', '%(vehicle_id)s');" % vars()
 
         for stop in prediction['stop']:
             pre_away = stop['pre_away']
             stop_sequence = stop['stop_sequence']
             stop_name = stop['stop_name']
             stop_id = stop['stop_id']
-            print "insert into TrainStops (TripID, StopID, StopName, StopSequence, PredAway) " \
-                  "VALUES ('%(trip_id)s', '%(stop_id)s', '%(stop_name)s', '%(stop_sequence)s', '%(pre_away)s')" % vars()
-    print "\n\n"
+            print "INSERT INTO  TrainStops (TripID, StopID, StopName, StopSequence, PredAway) " \
+                  "VALUES ('%(trip_id)s', '%(stop_id)s', '%(stop_name)s', '%(stop_sequence)s', '%(pre_away)s');" % vars()
+
+
+    route_id = alerts['route_id']
+    route_name = alerts['route_name']
+    for alert in alerts['alerts']:
+        alert_id = alert['alert_id']
+        alert_text = alert['description_text']
+        print "INSERT INTO Alerts " \
+              "(RouteID, AlertID, AlertText) " \
+              "VALUES ('%(route_id)s', '%(alert_id)s', '%(alert_text)s');" % vars()
+
+    #print "\n\n"

@@ -47,6 +47,7 @@ def main():
                 temp.update({
                     "route_id": route['route_id'],
                     "route_title": route['route_name'],
+                    "mode_name": mode['mode_name'],
                     "directions": schd['direction'],
                     "alerts": alert_res,
                     "predictions": []
