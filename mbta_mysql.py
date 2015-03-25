@@ -61,8 +61,8 @@ for train in json_data:
             res = cursor.fetchone()
             if res is None:
                 cursor.execute( "insert into TrainLocations (TrainLAT, TrainLon,TripID,RouteId,VehicleID) VALUES (%s,%s,%s,%s,%s)", (vehicle_lat,vehicle_lon,trip_id,route_id,vehicle_id) )#  % vars()
-           # else
-             #   cursor.execute( "")                    //////ADD THIS SHIT IN MOTHER FUCKER. 7. IT'S AN UPDATE - NEIL
+            else:
+                cursor.execute( "update TrainLocations set TrainLAT = (%s), TrainLON = (%s) where TripID = (%s) and VehicleID = (%s)", (vehicle_lat,vehicle_lon,trip_id,vehicle_id) )
             stop_ids = []
             for stop in prediction['stop']:
                 pre_away = stop['pre_away']
@@ -75,6 +75,8 @@ for train in json_data:
                     res = cursor.fetchone()
                     if res is None:
                         cursor.execute( "insert into TripStops (TripID, StopID, StopName, StopSequence, PredAway) VALUES (%s,%s,%s,%s,%s)",(trip_id,stop_id,stop_name,stop_sequence,pre_away))  # % vars()
+                    else:
+                        cursor.execute( "update TripStops set StopID = (%s), StopName = (%s), StopSequence = (%s), PredAway = (%s) where TripID = (%s)", (stop_id,stop_name,stop_sequence,pre_away, trip_id) )
     route_id = alerts['route_id']
     route_name = alerts['route_name']
     for alert in alerts['alerts']:

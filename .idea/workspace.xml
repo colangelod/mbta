@@ -14,8 +14,8 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/dom_project$mbta_mysql.coverage" NAME="mbta_mysql Coverage Results" MODIFIED="1427314294150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/dom_project$mbta.coverage" NAME="mbta Coverage Results" MODIFIED="1427312913234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dom_project$mbta_mysql.coverage" NAME="mbta_mysql Coverage Results" MODIFIED="1427319245951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dom_project$mbta.coverage" NAME="mbta Coverage Results" MODIFIED="1427319185898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/dom_project$nextbus.coverage" NAME="nextbus Coverage Results" MODIFIED="1426818635052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -52,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mbta.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mbta.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mbta.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
-              <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.34907597" vertical-offset="0" max-vertical-offset="1479">
+              <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -64,35 +64,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mbta_mysql.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mbta_mysql.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mbta_mysql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29133064" vertical-offset="0" max-vertical-offset="1632">
-              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="589" max-vertical-offset="1666">
+              <caret line="78" column="203" selection-start-line="78" selection-start-column="203" selection-end-line="78" selection-end-column="203" />
               <folding>
                 <element signature="e#14#25#0" expanded="true" />
-                <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-                <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-                <marker date="1427314294150" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
-                <marker date="1427314294150" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
-                <marker date="1427314294150" expanded="true" signature="617:689" placeholder="insert into ..." />
-                <marker date="1427314294150" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
-                <marker date="1427314294150" expanded="true" signature="2003:2025" placeholder="insert into ..." />
-                <marker date="1427314294150" expanded="true" signature="2003:2068" placeholder="insert into ..." />
-                <marker date="1427314294150" expanded="true" signature="2003:2089" placeholder="insert into ..." />
-                <marker date="1427314294150" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
-                <marker date="1427314294150" expanded="true" signature="2419:2445" placeholder="insert into ..." />
-                <marker date="1427314294150" expanded="true" signature="2419:2491" placeholder="insert into ..." />
-                <marker date="1427314294150" expanded="true" signature="2419:2499" placeholder="insert into ..." />
-                <marker date="1427314294150" expanded="true" signature="2419:2515" placeholder="insert into ..." />
-                <marker date="1427314294150" expanded="true" signature="3104:3170" placeholder="select TripI..TripStops..." />
-                <marker date="1427314294150" expanded="true" signature="3314:3386" placeholder="insert into ..." />
-                <marker date="1427314294150" expanded="true" signature="3314:3395" placeholder="insert into ..." />
-                <marker date="1427314294150" expanded="true" signature="3314:3410" placeholder="insert into ..." />
-                <marker date="1427314294150" expanded="true" signature="3687:3731" placeholder="select Alert..Alerts..." />
-                <marker date="1427314294150" expanded="true" signature="3687:3733" placeholder="select Alert..Alerts..." />
-                <marker date="1427314294150" expanded="true" signature="3687:3753" placeholder="select Alert..Alerts..." />
-                <marker date="1427314294150" expanded="true" signature="3863:3929" placeholder="insert into ..." />
+                <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+                <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+                <marker date="1427319047242" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
+                <marker date="1427319047242" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
+                <marker date="1427319047242" expanded="true" signature="617:689" placeholder="insert into ..." />
+                <marker date="1427319047242" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
+                <marker date="1427319047242" expanded="true" signature="2003:2025" placeholder="insert into ..." />
+                <marker date="1427319047242" expanded="true" signature="2003:2068" placeholder="insert into ..." />
+                <marker date="1427319047242" expanded="true" signature="2003:2089" placeholder="insert into ..." />
+                <marker date="1427319047242" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
+                <marker date="1427319047242" expanded="true" signature="2419:2445" placeholder="insert into ..." />
+                <marker date="1427319047242" expanded="true" signature="2419:2491" placeholder="insert into ..." />
+                <marker date="1427319047242" expanded="true" signature="2419:2499" placeholder="insert into ..." />
+                <marker date="1427319047242" expanded="true" signature="2419:2515" placeholder="insert into ..." />
+                <marker date="1427319047242" expanded="true" signature="2636:2670" placeholder="update Train..." />
+                <marker date="1427319047242" expanded="true" signature="2636:2677" placeholder="update Train..." />
+                <marker date="1427319047242" expanded="true" signature="2636:2694" placeholder="update Train..." />
+                <marker date="1427319047242" expanded="true" signature="2636:2709" placeholder="update Train..." />
+                <marker date="1427319047242" expanded="true" signature="2636:2710" placeholder="update Train..." />
+                <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+                <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+                <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+                <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+                <marker date="1427319047242" expanded="true" signature="2636:2735" placeholder="update Train..." />
+                <marker date="1427319047242" expanded="true" signature="3167:3233" placeholder="select TripI..TripStops..." />
+                <marker date="1427319047242" expanded="true" signature="3377:3449" placeholder="insert into ..." />
+                <marker date="1427319047242" expanded="true" signature="3377:3458" placeholder="insert into ..." />
+                <marker date="1427319047242" expanded="true" signature="3377:3473" placeholder="insert into ..." />
+                <marker date="1427319047242" expanded="true" signature="3606:3715" placeholder="update TripS..." />
+                <marker date="1427319047242" expanded="true" signature="3983:4027" placeholder="select Alert..Alerts..." />
+                <marker date="1427319047242" expanded="true" signature="3983:4029" placeholder="select Alert..Alerts..." />
+                <marker date="1427319047242" expanded="true" signature="3983:4049" placeholder="select Alert..Alerts..." />
+                <marker date="1427319047242" expanded="true" signature="4159:4225" placeholder="insert into ..." />
               </folding>
             </state>
           </provider>
@@ -111,9 +122,22 @@
       <file leaf-file-name="mbta.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mbta.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="8127.615" vertical-offset="213358" max-vertical-offset="303773">
-              <caret line="120" column="51" selection-start-line="120" selection-start-column="51" selection-end-line="120" selection-end-column="51" />
-              <folding />
+            <state vertical-scroll-proportion="3522.5334" vertical-offset="211352" max-vertical-offset="308057">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1427319237224" expanded="true" signature="0:901118" placeholder="[...]" />
+                <marker date="1427319237224" expanded="true" signature="4523:4893" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+                <marker date="1427319237224" expanded="true" signature="5335:5716" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+                <marker date="1427319237224" expanded="true" signature="5747:6124" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+                <marker date="1427319237224" expanded="true" signature="130219:138728" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+                <marker date="1427319237224" expanded="true" signature="130521:138728" placeholder="[...]" />
+                <marker date="1427319237224" expanded="true" signature="130564:138728" placeholder="{&quot;direction_id&quot;: &quot;0&quot;...}" />
+                <marker date="1427319237224" expanded="true" signature="130709:138728" placeholder="[...]" />
+                <marker date="1427319237224" expanded="true" signature="901003:901116" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+                <marker date="1427319237224" expanded="true" signature="901003:901046" placeholder="[...]" />
+                <marker date="1427319237224" expanded="true" signature="901003:901036" placeholder="{&quot;direction_id&quot;: &quot;1&quot;...}" />
+                <marker date="1427319237224" expanded="true" signature="901003:901022" placeholder="{&quot;vehicle_bearing&quot;: &quot;0&quot;...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,10 +161,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="2178" />
-    <option name="height" value="1410" />
+    <option name="width" value="1080" />
+    <option name="height" value="1392" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -456,16 +478,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="2178" height="1410" extended-state="6" />
+    <frame x="0" y="0" width="1080" height="1392" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20233463" sideWeight="0.07638889" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20520915" sideWeight="0.1440678" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20233463" sideWeight="0.9236111" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20520915" sideWeight="0.8559322" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -563,28 +585,39 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#14#25#0" expanded="true" />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="617:689" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2025" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2068" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2089" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2445" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2491" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2499" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2515" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3104:3170" placeholder="select TripI..TripStops..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3386" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3395" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3410" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3731" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3733" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3753" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3863:3929" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="617:689" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2025" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2068" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2089" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2445" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2491" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2499" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2515" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2670" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2677" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2694" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2709" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2710" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2735" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="3167:3233" placeholder="select TripI..TripStops..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3449" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3458" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3473" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3606:3715" placeholder="update TripS..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4027" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4029" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4049" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="4159:4225" placeholder="insert into ..." />
           </folding>
         </state>
       </provider>
@@ -593,58 +626,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="373150">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nextbus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="1445">
-          <caret line="72" column="41" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mbta.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1496">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mbta_mysql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="218" max-vertical-offset="1156">
-          <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
-          <folding>
-            <element signature="e#14#25#0" expanded="true" />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="617:689" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2025" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2068" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2089" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2445" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2491" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2499" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2515" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3104:3170" placeholder="select TripI..TripStops..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3386" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3395" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3410" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3731" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3733" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3753" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3863:3929" placeholder="insert into ..." />
+            <marker date="1427319237224" expanded="true" signature="0:901118" placeholder="[...]" />
+            <marker date="1427319237224" expanded="true" signature="4523:4893" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="5335:5716" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="5747:6124" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="130219:138728" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="130521:138728" placeholder="[...]" />
+            <marker date="1427319237224" expanded="true" signature="130564:138728" placeholder="{&quot;direction_id&quot;: &quot;0&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="130709:138728" placeholder="[...]" />
+            <marker date="1427319237224" expanded="true" signature="901003:901116" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="901003:901046" placeholder="[...]" />
+            <marker date="1427319237224" expanded="true" signature="901003:901036" placeholder="{&quot;direction_id&quot;: &quot;1&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="901003:901022" placeholder="{&quot;vehicle_bearing&quot;: &quot;0&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -675,28 +669,39 @@
           <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
           <folding>
             <element signature="e#14#25#0" expanded="true" />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="617:689" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2025" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2068" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2089" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2445" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2491" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2499" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2515" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3104:3170" placeholder="select TripI..TripStops..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3386" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3395" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3410" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3731" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3733" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3753" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3863:3929" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="617:689" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2025" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2068" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2089" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2445" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2491" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2499" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2515" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2670" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2677" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2694" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2709" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2710" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2735" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="3167:3233" placeholder="select TripI..TripStops..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3449" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3458" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3473" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3606:3715" placeholder="update TripS..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4027" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4029" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4049" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="4159:4225" placeholder="insert into ..." />
           </folding>
         </state>
       </provider>
@@ -727,28 +732,102 @@
           <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
           <folding>
             <element signature="e#14#25#0" expanded="true" />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="617:689" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2025" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2068" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2089" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2445" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2491" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2499" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2515" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3104:3170" placeholder="select TripI..TripStops..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3386" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3395" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3410" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3731" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3733" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3753" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3863:3929" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="617:689" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2025" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2068" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2089" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2445" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2491" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2499" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2515" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2670" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2677" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2694" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2709" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2710" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2735" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="3167:3233" placeholder="select TripI..TripStops..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3449" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3458" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3473" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3606:3715" placeholder="update TripS..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4027" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4029" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4049" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="4159:4225" placeholder="insert into ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nextbus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1224" max-vertical-offset="1445">
+          <caret line="72" column="41" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mbta.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1496">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mbta_mysql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="218" max-vertical-offset="1156">
+          <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+          <folding>
+            <element signature="e#14#25#0" expanded="true" />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="617:689" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2025" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2068" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2089" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2445" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2491" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2499" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2515" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2670" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2677" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2694" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2709" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2710" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2735" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="3167:3233" placeholder="select TripI..TripStops..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3449" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3458" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3473" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3606:3715" placeholder="update TripS..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4027" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4029" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4049" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="4159:4225" placeholder="insert into ..." />
           </folding>
         </state>
       </provider>
@@ -786,28 +865,39 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#14#25#0" expanded="true" />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="617:689" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2025" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2068" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2089" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2445" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2491" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2499" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2515" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3104:3170" placeholder="select TripI..TripStops..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3386" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3395" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3410" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3731" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3733" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3753" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3863:3929" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="617:689" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2025" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2068" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2089" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2445" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2491" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2499" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2515" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2670" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2677" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2694" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2709" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2710" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2735" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="3167:3233" placeholder="select TripI..TripStops..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3449" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3458" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3473" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3606:3715" placeholder="update TripS..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4027" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4029" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4049" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="4159:4225" placeholder="insert into ..." />
           </folding>
         </state>
       </provider>
@@ -845,28 +935,39 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#14#25#0" expanded="true" />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="617:689" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2025" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2068" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2089" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2445" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2491" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2499" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2515" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3104:3170" placeholder="select TripI..TripStops..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3386" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3395" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3410" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3731" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3733" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3753" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3863:3929" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="617:689" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2025" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2068" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2089" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2445" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2491" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2499" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2515" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2670" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2677" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2694" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2709" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2710" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2735" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="3167:3233" placeholder="select TripI..TripStops..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3449" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3458" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3473" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3606:3715" placeholder="update TripS..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4027" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4029" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4049" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="4159:4225" placeholder="insert into ..." />
           </folding>
         </state>
       </provider>
@@ -964,52 +1065,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mbta.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mbta.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8127.615" vertical-offset="213358" max-vertical-offset="303773">
-          <caret line="120" column="51" selection-start-line="120" selection-start-column="51" selection-end-line="120" selection-end-column="51" />
-          <folding />
+        <state vertical-scroll-proportion="3522.5334" vertical-offset="211352" max-vertical-offset="306646">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1427319237224" expanded="true" signature="0:901118" placeholder="[...]" />
+            <marker date="1427319237224" expanded="true" signature="4523:4893" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="5335:5716" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="5747:6124" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="130219:138728" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="130521:138728" placeholder="[...]" />
+            <marker date="1427319237224" expanded="true" signature="130564:138728" placeholder="{&quot;direction_id&quot;: &quot;0&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="130709:138728" placeholder="[...]" />
+            <marker date="1427319237224" expanded="true" signature="901003:901116" placeholder="{&quot;mode_name&quot;: &quot;Subway&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="901003:901046" placeholder="[...]" />
+            <marker date="1427319237224" expanded="true" signature="901003:901036" placeholder="{&quot;direction_id&quot;: &quot;1&quot;...}" />
+            <marker date="1427319237224" expanded="true" signature="901003:901022" placeholder="{&quot;vehicle_bearing&quot;: &quot;0&quot;...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mbta_mysql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29133064" vertical-offset="0" max-vertical-offset="1632">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="589" max-vertical-offset="1666">
+          <caret line="78" column="203" selection-start-line="78" selection-start-column="203" selection-end-line="78" selection-end-column="203" />
           <folding>
             <element signature="e#14#25#0" expanded="true" />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
-            <marker date="1427314294150" expanded="true" signature="617:689" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2025" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2068" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2003:2089" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2445" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2491" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2499" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="2419:2515" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3104:3170" placeholder="select TripI..TripStops..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3386" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3395" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3314:3410" placeholder="insert into ..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3731" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3733" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3687:3753" placeholder="select Alert..Alerts..." />
-            <marker date="1427314294150" expanded="true" signature="3863:3929" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:524" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:528" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="477:529" placeholder="select Route..TrainRoutes..." />
+            <marker date="1427319047242" expanded="true" signature="617:689" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="1831:1880" placeholder="select TripI..TrainTrips..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2025" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2068" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2003:2089" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2219:2296" placeholder="select Vehic..TrainLocations..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2445" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2491" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2499" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2419:2515" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2670" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2677" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2694" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2709" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2710" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2714" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="2636:2735" placeholder="update Train..." />
+            <marker date="1427319047242" expanded="true" signature="3167:3233" placeholder="select TripI..TripStops..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3449" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3458" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3377:3473" placeholder="insert into ..." />
+            <marker date="1427319047242" expanded="true" signature="3606:3715" placeholder="update TripS..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4027" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4029" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="3983:4049" placeholder="select Alert..Alerts..." />
+            <marker date="1427319047242" expanded="true" signature="4159:4225" placeholder="insert into ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mbta.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34907597" vertical-offset="0" max-vertical-offset="1479">
+          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
