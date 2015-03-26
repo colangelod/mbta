@@ -1,5 +1,3 @@
-__author__ = 'Neil'
-
 import MySQLdb as mdb
 import json
 from pprint import pprint
@@ -44,7 +42,9 @@ for tag in json_data:
             if res is None:
                 cursor.execute("insert into Busses (VehicleNumber, RTag, BusTitle) VALUES (%s, %s, %s)", (vehicle_id, route_tag, title))
             else:
-                 cursor.execute( "update Busses set RTag = (%s), BusTitle = (%s) where VehicleNumber = (%s) and RTag != (%s)", (route_tag, title, vehicle_id, route_tag) )
+                print 'bus'
+                cursor.execute( "update Busses set RTag = (%s), BusTitle = (%s) where VehicleNumber = (%s) and RTag = (%s)", (route_tag, title, vehicle_id, route_tag) )
+
             cursor.execute("select VehicleNumber FROM Locations WHERE VehicleNumber = (%s)", [vehicle_id])
             res = cursor.fetchone()
             if res is None:

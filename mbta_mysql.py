@@ -88,13 +88,6 @@ for train in json_data:
             cursor.execute( "insert into Alerts (RouteID, AlertID, AlertText) values (%s,%s,%s)", (route_id, alert_id, alert_text))
     print "\n\n"
 
-    route_id = alerts['route_id']
-    route_name = alerts['route_name']
-    for alert in alerts['alerts']:
-        alert_id = alert['alert_id']
-        alert_text = alert['description_text']
-        print "INSERT INTO Alerts " \
-              "(RouteID, AlertID, AlertText) " \
-              "VALUES ('%(route_id)s', '%(alert_id)s', '%(alert_text)s');" % vars()
+
 
 cnx.commit()
