@@ -1,6 +1,7 @@
 #port MySQLdb
 import json
 import MySQLdb as mdb
+import time
 from pprint import pprint
 
 cnx = mdb.connect('localhost', 'root', '', 'databaseproject')
@@ -9,6 +10,7 @@ cursor = cnx.cursor()
 file = open("mbta.json", "r")
 
 json_data = json.load(file)
+t0 = time.time()
 
 for train in json_data:
     route_id = train['route_id']
@@ -55,7 +57,7 @@ for train in json_data:
                 cursor.execute( "select TripID from TrainTrips where TripID = (%s)", [trip_id])
                 res = cursor.fetchone()
                 if res is None:
-                    cursor.execute( "insert into TrainTrips (TripID, RouteId, VehicleId, TripHeadsign) VALUES (%s,%s,%s,%s)", (trip_id, route_id, vehicle_id, trip_headsign ))  #  % vars()
+                    cursor.execute( "insert into TrainTrips (TripID, RouteId, VehicleId, TripHeadsign, InsertTime) VALUES (%s,%s,%s,%s,%s)", (trip_id, route_id, vehicle_id, trip_headsign, t0 ))  #  % vars()
                 already_trip = True
             cursor.execute( "select VehicleID from TrainLocations where VehicleID = (%s) and TripID = (%s)", (vehicle_id, trip_id))
             res = cursor.fetchone()
@@ -91,3 +93,4 @@ for train in json_data:
 
 
 cnx.commit()
+print time.time() - t0

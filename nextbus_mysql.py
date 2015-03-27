@@ -5,7 +5,7 @@ import sys
 import time
 
 t0 = time.time()
-insert_time = time.time()
+
 
 file = open("nextbus.json", "r")
 
@@ -41,9 +41,12 @@ for tag in json_data:
             res = cursor.fetchone()
             if res is None:
                 cursor.execute("insert into Busses (VehicleNumber, RTag, BusTitle) VALUES (%s, %s, %s)", (vehicle_id, route_tag, title))
-            else:
-                print 'bus'
-                cursor.execute( "update Busses set RTag = (%s), BusTitle = (%s) where VehicleNumber = (%s) and RTag = (%s)", (route_tag, title, vehicle_id, route_tag) )
+
+            '''cursor.execute("select VehicleNumber FROM Busses WHERE VehicleNumber = (%s) AND RTag != (%s)", (vehicle_id, route_tag))
+            res = cursor.fetchone()
+            if res is not None:
+                print 'updated bus'
+                cursor.execute( "update Busses set VehicleNumber = (%s), RTag = (%s), BusTitle = (%s) where VehicleNumber = (%s) and RTag != (%s)", (vehicle_id, route_tag, title, vehicle_id, route_tag) )'''
 
             cursor.execute("select VehicleNumber FROM Locations WHERE VehicleNumber = (%s)", [vehicle_id])
             res = cursor.fetchone()
@@ -89,7 +92,7 @@ for tag in json_data:
                 cursor.execute("select VehicleNumber from Busses WHERE VehicleNumber = (%s)", [vehicle])
                 res = cursor.fetchone()
                 if res is not None:
-                    cursor.execute("insert into BusStopTimes (VehicleNumber, StopID, DirTAG, Seconds, InsertTime) VALUES (%s,%s,%s,%s, %s)", (vehicle, stop_id, dir_tag, seconds, insert_time))
+                    cursor.execute("insert into BusStopTimes (VehicleNumber, StopID, DirTAG, Seconds, InsertTime) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, dir_tag, seconds, t0))
                 else:
                     print "Failed to insert busstoptime for vehicleid %(vehicle)s -- stopid: %(stop_id)s dir_tag: %(dir_tag)s" % vars()
 
@@ -101,10 +104,15 @@ for tag in json_data:
                 if "isDelayed" in prediction:
                     is_delayed = True
                 if slowness is not None or is_delayed is not None:
-                    cursor.execute("select VehicleNumber from BusDelays WHERE VehicleNumber = (%s)", [vehicle])
+                    cursor.execute("select VehicleNumber from BusDelays WHERE VehicleNumber = (%s) and StopID = (%s)", (vehicle_id, stop_id))
                     res = cursor.fetchone()
                     if res is None:
-                        cursor.execute("insert into BusDelays (VehicleNumber, StopID, AffectedByLayover, IsDelayed, Slowness) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, affectedByLayover, is_delayed, slowness))
+                        cursor.execute("select VehicleNumber from Busses WHERE VehicleNumber = (%s)", [vehicle])
+                        res = cursor.fetchone()
+                        if res is None:
+                            print 'woo'
+                            cursor.execute("insert into BusDelays (VehicleNumber, StopID, AffectedByLayover, IsDelayed, Slowness) VALUES (%s,%s,%s,%s,%s)", (vehicle_id, stop_id, affectedByLayover, is_delayed, slowness))
+                            con.commit()
                     else:
                         cursor.execute( "update BusDelays set AffectedByLayover = (%s), IsDelayed = (%s), Slowness = (%s) where VehicleNumber = (%s) and StopID = (%s)", (affectedByLayover, is_delayed, slowness, vehicle_id, stop_id) )
 
