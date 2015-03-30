@@ -83,10 +83,17 @@ for tag in json_data:
                 slowness, affectedByLayover, is_delayed = None, None, None
                 if "slowness" in prediction:
                     slowness = prediction['slowness']
+                else:
+                    slowness = 0
                 if "affectedByLayover" in prediction:
                     affectedByLayover = prediction['affectedByLayover']
+                else:
+                    affectedByLayover = False
                 if "isDelayed" in prediction:
                     is_delayed = True
+                else:
+                    is_delayed = False
+
 
                 if slowness is not None and affectedByLayover is not None and is_delayed is not None:
                     cursor.execute("insert into BusDelays (VehicleNumber, StopID, AffectedByLayover, IsDelayed, Slowness) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, affectedByLayover, is_delayed, slowness))
