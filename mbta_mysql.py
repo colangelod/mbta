@@ -39,7 +39,7 @@ for train in json_data:
         already_trip = False
         #pprint(prediction)
         direction_name = prediction['direction_name']
-        route_id = prediction['route_id']
+        route_id = train['route_id']
         route_type = prediction['route_type']
         trip_id = prediction['trip_id']
         mode_name = prediction['mode_name']

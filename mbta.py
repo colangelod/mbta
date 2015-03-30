@@ -5,7 +5,7 @@ import time
 
 from multiprocessing.pool import ThreadPool as Pool
 
-pool_size = 35
+pool_size = 15
 pool = Pool(pool_size)
 
 
