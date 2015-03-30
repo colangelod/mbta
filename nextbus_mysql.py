@@ -6,7 +6,6 @@ import time
 
 t0 = time.time()
 
-
 file = open("nextbus.json", "r")
 
 json_data = json.load(file)
@@ -42,6 +41,7 @@ for tag in json_data:
             if res is None:
                 cursor.execute("insert into Busses (VehicleNumber, RTag, BusTitle) VALUES (%s, %s, %s)", (vehicle_id, route_tag, title))
 
+            cursor.execute("insert into Locations (VehicleNumber, BusLAT, BusLON, Predictable) VALUES (%s,%s,%s,%s)", (vehicle_id, lat, lon, predictable))
             '''cursor.execute("select VehicleNumber FROM Busses WHERE VehicleNumber = (%s) AND RTag != (%s)", (vehicle_id, route_tag))
             res = cursor.fetchone()
             if res is not None:
@@ -99,6 +99,29 @@ for tag in json_data:
                 slowness, affectedByLayover, is_delayed = None, None, None
                 if "slowness" in prediction:
                     slowness = prediction['slowness']
+                else:
+                    slowness = 0
+                if "affectedByLayover" in prediction:
+                    affectedByLayover = prediction['affectedByLayover']
+                else:
+                    affectedByLayover = False
+                if "isDelayed" in prediction:
+                    is_delayed = True
+                else:
+                    is_delayed = False
+
+
+                if slowness is not None and affectedByLayover is not None and is_delayed is not None:
+                    cursor.execute("insert into BusDelays (VehicleNumber, StopID, AffectedByLayover, IsDelayed, Slowness) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, affectedByLayover, is_delayed, slowness))
+
+                #print vehicle, stop_id, dir_tag, seconds
+                cursor.execute("select VehicleNumber from Busses WHERE VehicleNumber = (%s)", [vehicle])
+                res = cursor.fetchone()
+                if res is not None:
+                    cursor.execute("insert into BusStopTimes (VehicleNumber, StopID, DirTAG, Seconds) VALUES (%s,%s,%s,%s)", (vehicle, stop_id, dir_tag, seconds))
+                else:
+                    print "Failed to insert busstoptime for vehicleid %(vehicle)s -- stopid: %(stop_id)s dir_tag: %(dir_tag)s" % vars()
+
                 if "affectedByLayover" in prediction:
                     affectedByLayover = prediction['affectedByLayover']
                 if "isDelayed" in prediction:
