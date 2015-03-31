@@ -5,11 +5,10 @@ con = mdb.connect(host="localhost", user="root", passwd="", db="databaseproject"
 cursor = con.cursor()
 
 def query1():
-    vehicleNum = mdb.escape_string(raw_input("Enter a vehicle number: "))
-    route_tag = mdb.escape_string(raw_input("Enter a route tag: "))
-    get_and_print("select vehicleNumber, rtag, bustitle FROM busses WHERE vehiclenumber = (%s) AND rtag = (%s)",
-                  [vehicleNum, route_tag],
-                  ("vehicle number", "route tag", "bus title"))
+    routeID = mdb.escape_string(raw_input("Enter a route ID: "))
+    get_and_print("Select TrainRoutes.RouteID, TrainRoutes.RouteName as RouteName , TrainRoutes.ModeName, TrainTrips.TripID, TrainTrips.TripHeadsign from TrainRoutes inner join Traintrips on TrainRoutes.RouteId= TrainTrips.RouteID where TrainRoutes.RouteID = %s",
+                  [routeID],
+                  ("RouteID", "RouteName", "ModeName", "TripID", "TripHeadsign"))
 
 
 def query2():
@@ -17,10 +16,10 @@ def query2():
                     ["StopID", "StopName"])
 
 def query3():
-    print "fuckyou"
+    print "Lsdgfy"
 
 def main():
-    print "Do some shit? Do some shit. 0 for exit"
+    print "Do some stuff? Do some stuff. 0 for exit"
     try:
         answer = int(raw_input("Enter the number corresponding to your requested action: "))
     except Exception:
