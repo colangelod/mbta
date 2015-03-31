@@ -18,7 +18,6 @@ for tag in json_data:
     routes = json_data[tag]['routes']
     title = json_data[tag]['title']
 
-
     i = 0
     for route in routes:
         for vehicle in json_data[tag]['routes'][i]['vehicles']:
@@ -35,13 +34,11 @@ for tag in json_data:
             secsSinceReport = vehicle['secsSinceReport']
             predictable = True if vehicle['predictable'] == "true" else False
             heading = vehicle['heading']
-
             cursor.execute("select VehicleNumber FROM Busses WHERE VehicleNumber = (%s) AND RTag = (%s)", (vehicle_id, route_tag))
             res = cursor.fetchone()
             if res is None:
                 cursor.execute("insert into Busses (VehicleNumber, RTag, BusTitle) VALUES (%s, %s, %s)", (vehicle_id, route_tag, title))
 
-            cursor.execute("insert into Locations (VehicleNumber, BusLAT, BusLON, Predictable) VALUES (%s,%s,%s,%s)", (vehicle_id, lat, lon, predictable))
             '''cursor.execute("select VehicleNumber FROM Busses WHERE VehicleNumber = (%s) AND RTag != (%s)", (vehicle_id, route_tag))
             res = cursor.fetchone()
             if res is not None:
