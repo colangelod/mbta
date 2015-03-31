@@ -5,21 +5,27 @@ con = mdb.connect(host="localhost", user="root", passwd="", db="databaseproject"
 cursor = con.cursor()
 
 def query1():   #info for a train routeid
-    routeID = mdb.escape_string(raw_input("Enter a route ID: "))
+    routeID = mdb.escape_string(raw_input("Enter a train route ID (Red, Blue, Orange): "))
     get_and_print("Select TrainRoutes.RouteID, TrainRoutes.RouteName as RouteName , TrainRoutes.ModeName, TrainTrips.TripID, TrainTrips.TripHeadsign from TrainRoutes inner join TrainTrips on TrainRoutes.RouteId= TrainTrips.RouteID where TrainRoutes.RouteID = %s",
                   [routeID],
                   ("RouteID", "RouteName", "ModeName", "TripID", "TripHeadsign"))
 
 
-def query2():
-    query_and_print("Select BusStops.StopID, BusStops.StopName from (Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) Inner join BusStops on BusStopTimes.StopId = BusStops.StopID",
+def query2(): #see all active stops (being serviced by busses on the road)
+    query_and_print("Select distinct BusStops.StopID, BusStops.StopName from (Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) Inner join BusStops on BusStopTimes.StopId = BusStops.StopID",
                     ["StopID", "StopName"])
 
-def query3():   #See busses servicing a stop
+def query3():   #see busses servicing a stop
     stopID = mdb.escape_string(raw_input("Enter a stop ID: "))
     get_and_print("Select BusStopTimes.VehicleNumber as BusVehicleNumber, Busses.BusTitle as BusName, BusStops.StopID as Bus_Stop_ID, BusStops.StopName as StopName, BusStopTimes.Seconds as Seconds_Away from ((Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) Inner join BusStops on BusStopTimes.StopID = BusStops.StopID) where BusStops.StopID = (%s)",
     [stopID],
-    ("vehiclenum", "Busname", "stopID", "secondsaway"))
+    ("vehiclenum", "Bus Number", "Stop ID", "Stop Name", "Seconds Away"))
+
+def query4():   #see trip info relating to train routeid
+    routeID = mdb.escape_string(raw_input("Enter a train route ID (Red, Blue, Orange): "))
+    get_and_print("Select TrainRoutes.RouteID, TrainRoutes.RouteName as RouteName, TrainRoutes.ModeName, TrainTrips.TripID, TrainTrips.TripHeadsign from TrainRoutes inner join Traintrips on TrainRoutes.RouteId= TrainTrips.RouteID where TrainRoutes.RouteID = (%s)",
+    [routeID],
+    ("Route ID", "Route Name", "Mode Name", "Trip ID", "Headsign"))
 
 def main():
     print "Do some stuff? Do some stuff. 0 for exit"
@@ -55,7 +61,8 @@ ALLOWED_ACTIONS = {
     0: exit,
     1: query1,
     2: query2,
-    3: query3
+    3: query3,
+    4: query4
 }
 
 if __name__ == '__main__':

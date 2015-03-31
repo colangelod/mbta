@@ -36,7 +36,7 @@ class MBTA:
             if mode['route_type'] in ROUTE_TYPES:
                 for route in mode['route']:
                     route_id = route['route_id']
-                    print route_id
+                    #print route_id
                     res = urllib2.urlopen(URL.format(CMD_SCHEDULE_BY_ROOT)+"&route={0}&datetime={1}".format(route['route_id'], int(time.time())))
                     schd = json.load(res)
                     alert_res = False
