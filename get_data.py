@@ -5,12 +5,16 @@ from mbta_mysql import MBTAMySQL as MBTA_Mysql
 from multiprocessing.pool import ThreadPool as Pool
 from nextbus_mysql import NextBusMySQL as NextBus_Mysql
 
-pool_size = 15
-pool = Pool(pool_size)
+
 
 def main():
+    pool_size = 15
+    pool = Pool(pool_size)
     pool.apply_async(mbta)
     pool.apply_async(nextbus)
+
+    pool.close()
+    pool.join()
 
     MBTA_Mysql().main()
     NextBus_Mysql().main()

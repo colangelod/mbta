@@ -52,13 +52,13 @@ class NextBus:
                 #worker(stop,tag,title)
                 i = i + 1
 
-                print i
+              #  print i
 
         t1 = time.time()
 
-        print t1 - t0
+       # print t1 - t0
 
-        print i
+       # print i
 
 
         pool.close()

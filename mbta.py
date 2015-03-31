@@ -85,4 +85,4 @@ class MBTA:
 if __name__ == "__main__":
     t0 = time.time()
     inst = MBTA()
-    print time.time() - t0
+    #print time.time() - t0

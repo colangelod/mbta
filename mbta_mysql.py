@@ -4,7 +4,7 @@ import MySQLdb as mdb
 import time
 from pprint import pprint
 
-cnx = mdb.connect('localhost', 'root', "bingobingo" 'databaseproject')
+cnx = mdb.connect(host='localhost', user='root', passwd="bingobingo", db='databaseproject')
 cursor = cnx.cursor()
 
 

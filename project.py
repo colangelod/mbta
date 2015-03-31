@@ -4,7 +4,7 @@ from tabulate import tabulate
 con = mdb.connect(host="localhost", user="root", passwd="", db="databaseproject")
 cursor = con.cursor()
 
-def query1():
+def query1():   #info for a train routeid
     routeID = mdb.escape_string(raw_input("Enter a route ID: "))
     get_and_print("Select TrainRoutes.RouteID, TrainRoutes.RouteName as RouteName , TrainRoutes.ModeName, TrainTrips.TripID, TrainTrips.TripHeadsign from TrainRoutes inner join TrainTrips on TrainRoutes.RouteId= TrainTrips.RouteID where TrainRoutes.RouteID = %s",
                   [routeID],
@@ -15,8 +15,11 @@ def query2():
     query_and_print("Select BusStops.StopID, BusStops.StopName from (Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) Inner join BusStops on BusStopTimes.StopId = BusStops.StopID",
                     ["StopID", "StopName"])
 
-def query3():
-    print "Lsdgfy"
+def query3():   #See busses servicing a stop
+    stopID = mdb.escape_string(raw_input("Enter a stop ID: "))
+    get_and_print("Select BusStopTimes.VehicleNumber as BusVehicleNumber, Busses.BusTitle as BusName, BusStops.StopID as Bus_Stop_ID, BusStops.StopName as StopName, BusStopTimes.Seconds as Seconds_Away from ((Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) Inner join BusStops on BusStopTimes.StopID = BusStops.StopID) where BusStops.StopID = (%s)",
+    [stopID],
+    ("vehiclenum", "Busname", "stopID", "secondsaway"))
 
 def main():
     print "Do some stuff? Do some stuff. 0 for exit"

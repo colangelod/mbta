@@ -1,7 +1,5 @@
 import MySQLdb as mdb
 import json
-from pprint import pprint
-import sys
 import time
 
 t0 = time.time()
@@ -90,8 +88,8 @@ class NextBusMySQL:
                         res = cursor.fetchone()
                         if res is not None:
                             cursor.execute("insert into BusStopTimes (VehicleNumber, StopID, DirTAG, Seconds, InsertTime) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, dir_tag, seconds, t0))
-                        else:
-                            print "Failed to insert busstoptime for vehicleid %(vehicle)s -- stopid: %(stop_id)s dir_tag: %(dir_tag)s" % vars()
+                     #   else:
+                          #  print "Failed to insert busstoptime for vehicleid %(vehicle)s -- stopid: %(stop_id)s dir_tag: %(dir_tag)s" % vars()
 
                         slowness, affectedByLayover, is_delayed = None, None, None
                         if "slowness" in prediction:
@@ -107,14 +105,6 @@ class NextBusMySQL:
                         else:
                             is_delayed = False
 
-
-                      #  if slowness is not None and affectedByLayover is not None and is_delayed is not None:
-                       #     cursor.execute("select VehicleNumber from BusDelays where VehicleNumber = (%s) and StopID = (%s)", (vehicle, stop_id))
-                     #       res = cursor.fetchone()
-                     #       if res is None:
-                     #           cursor.execute("insert into BusDelays (VehicleNumber, StopID, AffectedByLayover, IsDelayed, Slowness) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, affectedByLayover, is_delayed, slowness))
-
-                        #print vehicle, stop_id, dir_tag, seconds
                         cursor.execute("select VehicleNumber from Busses WHERE VehicleNumber = (%s)", [vehicle])
                         res = cursor.fetchone()
                         if res is not None:
