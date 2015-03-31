@@ -13,7 +13,6 @@ json_data = json.load(file)
 t0 = time.time()
 
 for train in json_data:
-    print "train_routeid", train['route_id']
     route_id = train['route_id']
     route_title = train['route_title']
     mode_name = train['mode_name']
@@ -37,13 +36,12 @@ for train in json_data:
 
 
     for prediction in predictions:
-        print "downhere", route_id
 
 
         already_trip = False
         #pprint(prediction)
         direction_name = prediction['direction_name']
-        route_id = train['route_id']
+        route_id = prediction['route_id']
         route_type = prediction['route_type']
         trip_id = prediction['trip_id']
         mode_name = prediction['mode_name']
