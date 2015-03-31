@@ -38,7 +38,6 @@ for tag in json_data:
             res = cursor.fetchone()
             if res is None:
                 cursor.execute("insert into Busses (VehicleNumber, RTag, BusTitle) VALUES (%s, %s, %s)", (vehicle_id, route_tag, title))
-
             '''cursor.execute("select VehicleNumber FROM Busses WHERE VehicleNumber = (%s) AND RTag != (%s)", (vehicle_id, route_tag))
             res = cursor.fetchone()
             if res is not None:
@@ -109,13 +108,16 @@ for tag in json_data:
 
 
                 if slowness is not None and affectedByLayover is not None and is_delayed is not None:
-                    cursor.execute("insert into BusDelays (VehicleNumber, StopID, AffectedByLayover, IsDelayed, Slowness) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, affectedByLayover, is_delayed, slowness))
+                    cursor.execute("select VehicleNumber from BusDelays where VehicleNumber = (%s) and StopID = (%s)", (vehicle, stop_id))
+                    res = cursor.fetchone()
+                    if res is not None:
+                        cursor.execute("insert into BusDelays (VehicleNumber, StopID, AffectedByLayover, IsDelayed, Slowness) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, affectedByLayover, is_delayed, slowness))
 
                 #print vehicle, stop_id, dir_tag, seconds
                 cursor.execute("select VehicleNumber from Busses WHERE VehicleNumber = (%s)", [vehicle])
                 res = cursor.fetchone()
                 if res is not None:
-                    cursor.execute("insert into BusStopTimes (VehicleNumber, StopID, DirTAG, Seconds) VALUES (%s,%s,%s,%s)", (vehicle, stop_id, dir_tag, seconds))
+                    cursor.execute("insert into BusStopTimes (VehicleNumber, StopID, DirTAG, Seconds, InsertTime) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, dir_tag, seconds, t0))
                 else:
                     print "Failed to insert busstoptime for vehicleid %(vehicle)s -- stopid: %(stop_id)s dir_tag: %(dir_tag)s" % vars()
 
