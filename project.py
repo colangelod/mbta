@@ -6,7 +6,7 @@ cursor = con.cursor()
 
 def query1():
     routeID = mdb.escape_string(raw_input("Enter a route ID: "))
-    get_and_print("Select TrainRoutes.RouteID, TrainRoutes.RouteName as RouteName , TrainRoutes.ModeName, TrainTrips.TripID, TrainTrips.TripHeadsign from TrainRoutes inner join Traintrips on TrainRoutes.RouteId= TrainTrips.RouteID where TrainRoutes.RouteID = %s",
+    get_and_print("Select TrainRoutes.RouteID, TrainRoutes.RouteName as RouteName , TrainRoutes.ModeName, TrainTrips.TripID, TrainTrips.TripHeadsign from TrainRoutes inner join TrainTrips on TrainRoutes.RouteId= TrainTrips.RouteID where TrainRoutes.RouteID = %s",
                   [routeID],
                   ("RouteID", "RouteName", "ModeName", "TripID", "TripHeadsign"))
 

@@ -23,7 +23,6 @@ class NextBusMySQL:
             i = 0
             for route in routes:
                 for vehicle in self.json_data[tag]['routes'][i]['vehicles']:
-                    #print vehicle
                     vehicle_id = vehicle['id']
                     if "routeTag" in vehicle:
                         route_tag = vehicle['routeTag']
@@ -109,11 +108,11 @@ class NextBusMySQL:
                             is_delayed = False
 
 
-                        if slowness is not None and affectedByLayover is not None and is_delayed is not None:
-                            cursor.execute("select VehicleNumber from BusDelays where VehicleNumber = (%s) and StopID = (%s)", (vehicle, stop_id))
-                            res = cursor.fetchone()
-                            if res is not None:
-                                cursor.execute("insert into BusDelays (VehicleNumber, StopID, AffectedByLayover, IsDelayed, Slowness) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, affectedByLayover, is_delayed, slowness))
+                      #  if slowness is not None and affectedByLayover is not None and is_delayed is not None:
+                       #     cursor.execute("select VehicleNumber from BusDelays where VehicleNumber = (%s) and StopID = (%s)", (vehicle, stop_id))
+                     #       res = cursor.fetchone()
+                     #       if res is None:
+                     #           cursor.execute("insert into BusDelays (VehicleNumber, StopID, AffectedByLayover, IsDelayed, Slowness) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, affectedByLayover, is_delayed, slowness))
 
                         #print vehicle, stop_id, dir_tag, seconds
                         cursor.execute("select VehicleNumber from Busses WHERE VehicleNumber = (%s)", [vehicle])
@@ -143,3 +142,7 @@ class NextBusMySQL:
                         #print vehicle, stop_id, dir_tag, seconds
 
         con.commit()
+
+
+if __name__ == "__main__":
+    NextBusMySQL().main()
