@@ -12,9 +12,6 @@ def main():
     pool.apply_async(mbta)
     pool.apply_async(nextbus)
 
-    pool.close()
-    pool.join()
-
     MBTA_Mysql().main()
     NextBus_Mysql().main()
 
