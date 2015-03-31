@@ -6,7 +6,7 @@ import time
 
 t0 = time.time()
 
-con = mdb.connect(host="localhost", user="root", passwd="", db="databaseproject")
+con = mdb.connect(host="localhost", user="root", passwd="bingobingo", db="databaseproject")
 cursor = con.cursor()
 
 class NextBusMySQL:
@@ -143,6 +143,3 @@ class NextBusMySQL:
 
         con.commit()
 
-
-if __name__ == "__main__":
-    NextBusMySQL().main()
