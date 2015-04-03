@@ -1,8 +1,8 @@
 import MySQLdb as mdb
 from tabulate import tabulate
 
-con = mdb.connect(host="localhost", user="root", passwd="", db="databaseproject")
-cursor = con.cursor()
+cnx = mdb.connect(host="localhost", user="root", passwd="bingobingo", db="databaseproject")
+cursor = cnx.cursor()
 
 def query1():   #info for a train routeid
     routeID = mdb.escape_string(raw_input("Enter a train route ID (Red, Blue, Orange): "))
