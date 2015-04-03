@@ -17,9 +17,9 @@ def query2(): #see all active stops (being serviced by busses on the road)
 
 def query3():   #see busses servicing a stop
     stopID = mdb.escape_string(raw_input("Enter a stop ID: "))
-    get_and_print("Select BusStopTimes.VehicleNumber as BusVehicleNumber, Busses.BusTitle as BusName, BusStops.StopID as Bus_Stop_ID, BusStops.StopName as StopName, BusStopTimes.Seconds as Seconds_Away from ((Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) Inner join BusStops on BusStopTimes.StopID = BusStops.StopID) where BusStops.StopID = (%s)",
+    get_and_print("Select distinct BusStopTimes.VehicleNumber as BusVehicleNumber, Busses.BusTitle as BusName, BusStops.StopID as Bus_Stop_ID, BusStops.StopName as StopName, BusStopTimes.Seconds as Seconds_Away, BusDelays.Slowness, ((BusStopTimes.Seconds*BusDelays.Slowness)+BusStopTimes.Seconds) as SecWdelay from (((Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) Inner join BusStops on BusStopTimes.StopID = BusStops.StopID) left join BusDelays on Busses.VehicleNumber = BusDelays.VehicleNumber) where BusStops.StopID = (%s)",
     [stopID],
-    ("vehiclenum", "Bus Number", "Stop ID", "Stop Name", "Seconds Away"))
+    ("vehiclenum", "Bus Number", "Stop ID", "Stop Name", "Scheduled Arrival", "Slowness Multiplier", "Estimated Arrival (sec)"))
 
 def query4():   #see trip info relating to train routeid
     routeID = mdb.escape_string(raw_input("Enter a train route ID (Red, Blue, Orange): "))

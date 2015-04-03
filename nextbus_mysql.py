@@ -4,7 +4,7 @@ import time
 
 t0 = time.time()
 
-cnx = mdb.connect(host="localhost", user="root", passwd="bingobingo", db="databaseproject")
+cnx = mdb.connect(host="localhost", user="root", passwd="", db="databaseproject")
 cursor = cnx.cursor()
 
 class NextBusMySQL:
@@ -98,23 +98,23 @@ class NextBusMySQL:
                         cursor.execute("select VehicleNumber from Busses WHERE VehicleNumber = (%s)", [vehicle])
                         res = cursor.fetchone()
                         if res is not None:
-                            cursor.execute("select InsertTime from BusStopTimes WHERE VehicleNumber = (%s) and StopID = (%s)", (vehicle_id, stop_id))
+                            cursor.execute("select InsertTime from BusStopTimes WHERE VehicleNumber = (%s) and StopID = (%s)", (vehicle, stop_id))
                             res = cursor.fetchone()
                             if res is None:
-                                cursor.execute("insert into BusStopTimes (VehicleNumber, StopID, DirTAG, Seconds, InsertTime) VALUES (%s,%s,%s,%s,%s)", (vehicle_id, stop_id, dir_tag, seconds, t0))
+                                cursor.execute("insert into BusStopTimes (VehicleNumber, StopID, DirTAG, Seconds, InsertTime) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, dir_tag, seconds, t0))
                             else:
-                                cursor.execute("update BusStopTimes set Seconds = (%s) where VehicleNumber = (%s) and StopID = (%s)", (seconds, vehicle_id, stop_id))
+                                cursor.execute("update BusStopTimes set Seconds = (%s) where VehicleNumber = (%s) and StopID = (%s)", (seconds, vehicle, stop_id))
 
-                        if slowness is not False or is_delayed is not False:
-                            cursor.execute("select VehicleNumber from BusDelays WHERE VehicleNumber = (%s) and StopID = (%s)", (vehicle_id, stop_id))
+                        if slowness is not 0 or is_delayed is not False:
+                            cursor.execute("select VehicleNumber from BusDelays WHERE VehicleNumber = (%s) and StopID = (%s)", (vehicle, stop_id))
                             res = cursor.fetchone()
                             if res is None:
                                 cursor.execute("select VehicleNumber from Busses WHERE VehicleNumber = (%s)", [vehicle])
                                 res = cursor.fetchone()
                                 if res is not None:
-                                    cursor.execute("insert into BusDelays (VehicleNumber, StopID, AffectedByLayover, IsDelayed, Slowness) VALUES (%s,%s,%s,%s,%s)", (vehicle_id, stop_id, affectedByLayover, is_delayed, slowness))
+                                    cursor.execute("insert into BusDelays (VehicleNumber, StopID, AffectedByLayover, IsDelayed, Slowness) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, affectedByLayover, is_delayed, slowness))
                             else:
-                                cursor.execute( "update BusDelays set AffectedByLayover = (%s), IsDelayed = (%s), Slowness = (%s) where VehicleNumber = (%s) and StopID = (%s)", (affectedByLayover, is_delayed, slowness, vehicle_id, stop_id) )
+                                cursor.execute( "update BusDelays set AffectedByLayover = (%s), IsDelayed = (%s), Slowness = (%s) where VehicleNumber = (%s) and StopID = (%s)", (affectedByLayover, is_delayed, slowness, vehicle, stop_id) )
 
         cnx.commit()
         print "NextBus transaction committed."
