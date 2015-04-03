@@ -1,46 +1,72 @@
 import MySQLdb as mdb
 from tabulate import tabulate
 
-cnx = mdb.connect(host="localhost", user="root", passwd="bingobingo", db="databaseproject")
+cnx = mdb.connect(host="localhost", user="root", passwd="", db="databaseproject")
 cursor = cnx.cursor()
 
-def query1():   #info for a train routeid
+def query1():
+    query_and_print("select TripID, RouteID, VehicleID, TripHeadsign from TrainTrips",
+        ("Trip ID", "Line", "Vehicle Number", "Destination"))
+def query2():
     routeID = mdb.escape_string(raw_input("Enter a train route ID (Red, Blue, Orange): "))
-    get_and_print("Select TrainRoutes.RouteID, TrainRoutes.RouteName as RouteName , TrainRoutes.ModeName, TrainTrips.TripID, TrainTrips.TripHeadsign from TrainRoutes inner join TrainTrips on TrainRoutes.RouteId= TrainTrips.RouteID where TrainRoutes.RouteID = %s",
+    get_and_print("Select TrainRoutes.RouteName as RouteName , TrainRoutes.ModeName, TrainTrips.TripID, TrainTrips.TripHeadsign from TrainRoutes inner join TrainTrips on TrainRoutes.RouteId= TrainTrips.RouteID where TrainRoutes.RouteID = %s",
                   [routeID],
-                  ("RouteID", "RouteName", "ModeName", "TripID", "TripHeadsign"))
+                  ("Line", "Mode", "Trip ID", "Destination"))
 
 
-def query2(): #see all active stops (being serviced by busses on the road)
+def query3(): #see all active stops (being serviced by busses on the road)
     query_and_print("Select distinct BusStops.StopID, BusStops.StopName from (Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) Inner join BusStops on BusStopTimes.StopId = BusStops.StopID",
                     ["StopID", "StopName"])
 
-def query3():   #see busses servicing a stop
+def query4():
+    stopFragment = mdb.escape_string(raw_input("Enter the full or partial title of the desired stop: "))
+    stopFragment = "%%%s%%" % stopFragment
+
+    get_and_print("select * from BusStops where StopName like (%s)",
+    [stopFragment],
+    ("Stop ID", "Stop Name", "Stop Latitude", "Stop Longitude"))
+
+def query5():
     stopID = mdb.escape_string(raw_input("Enter a stop ID: "))
     get_and_print("Select distinct BusStopTimes.VehicleNumber as BusVehicleNumber, Busses.BusTitle as BusName, BusStops.StopID as Bus_Stop_ID, BusStops.StopName as StopName, BusStopTimes.Seconds as Seconds_Away, BusDelays.Slowness, ((BusStopTimes.Seconds*BusDelays.Slowness)+BusStopTimes.Seconds) as SecWdelay from (((Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) Inner join BusStops on BusStopTimes.StopID = BusStops.StopID) left join BusDelays on Busses.VehicleNumber = BusDelays.VehicleNumber) where BusStops.StopID = (%s)",
     [stopID],
-    ("vehiclenum", "Bus Number", "Stop ID", "Stop Name", "Scheduled Arrival", "Slowness Multiplier", "Estimated Arrival (sec)"))
+    ("Vehicle Number", "Route Number", "Stop ID", "Stop Name", "Scheduled Arrival (sec)", "Slowness Multiplier", "Estimated Arrival (sec)"))
 
-def query4():   #see trip info relating to train routeid
-    routeID = mdb.escape_string(raw_input("Enter a train route ID (Red, Blue, Orange): "))
-    get_and_print("Select TrainRoutes.RouteID, TrainRoutes.RouteName as RouteName, TrainRoutes.ModeName, TrainTrips.TripID, TrainTrips.TripHeadsign from TrainRoutes inner join Traintrips on TrainRoutes.RouteId= TrainTrips.RouteID where TrainRoutes.RouteID = (%s)",
-    [routeID],
-    ("Route ID", "Route Name", "Mode Name", "Trip ID", "Headsign"))
-
-def query5():   #see all busses for a particular route (eg 23) and if they are delayed and by how much
+def query6():   #see all busses for a particular route (eg 23) and if they are delayed and by how much
     busTitle = mdb.escape_string(raw_input("Enter a bus title: "))
     get_and_print("Select Busses.BusTitle as Route, BusStops.StopName as StopName, BusDelays.isDelayed as isDelayed, BusDelays.Slowness from ((Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) inner join BusStops on BusStops.StopID = BusStopTimes.StopID) left join BusDelays on BusDelays.VehicleNumber = Busses.VehicleNumber where Busses.BusTitle = (%s)",
     [busTitle],
     ("Route ID", "Stop Name", "Delayed?", "Slowness"))
 
-def query6():   #see train alerts
+def query7():   #see train alerts
     routeID = mdb.escape_string(raw_input("Enter a train route ID: "))
     get_and_print("Select Alerts.RouteID as Route,Alerts.AlertText as TextMessage from Alerts where RouteID = (%s)",
     [routeID],
     ("Route", "Alert"))
 
+def query8():
+    vehiclenum = mdb.escape_string(raw_input("Enter a bus vehicle number: "))
+    get_and_print("Select Locations.VehicleNumber as BusVehicleNumber, Busses.BusTitle as BusName,  Locations.BusLAT as BusLAT, Locations.BusLON as BusLON from Locations left Join Busses on Busses.VehicleNumber = Locations.VehicleNumber where Busses.VehicleNumber = (%s)",
+    [vehiclenum],
+    ("Vehicle Number", "Bus Number", "Bus Latitude", "Bus Longitude"))
+
+def query9():
+    vehiclenum = mdb.escape_string(raw_input("Enter a train vehicle number: "))
+    get_and_print("Select distinct TrainLocations.VehicleID as TrainVehicleID, TrainTrips.TripHeadsign as TripName, TrainLocations.TrainLAT as TrainLAT, TrainLocations.TrainLON as TrainLON from (TrainLocations inner join TrainTrips on TrainLocations.VehicleID = TrainTrips.VehicleID) where TrainLocations.VehicleID = (%s)",
+    [vehiclenum],
+    ("Vehicle Number", "Train Destination", "Train Latitude", "Train Longitude"))
+
 def main():
-    print "Do some stuff? Do some stuff. 0 for exit"
+    print "Choose from the following options - "
+    print "1 - View all trains on the tracks."
+    print "2 - View information for all trains on a specified line (Red, Blue, Orange)."
+    print "3 - See all active stops currently being serviced by busses."
+    print "4 - See the stop ID of a potential match given a partial stop name."
+    print "5 - See busses serving a particular stop, including scheduled and predicted arrival time(s)."
+    print "6 - See all stops for a particular route number and associated delays."
+    print "7 - See all alerts for a train line (Red, Blue, Orange)."
+    print "8 - See the location of a given bus."
+    print "9 - See the location of a given train."
     try:
         answer = int(raw_input("Enter the number corresponding to your requested action: "))
     except Exception:
@@ -76,7 +102,10 @@ ALLOWED_ACTIONS = {
     3: query3,
     4: query4,
     5: query5,
-    6: query6
+    6: query6,
+    7: query7,
+    8: query8,
+    9: query9
 }
 
 if __name__ == '__main__':

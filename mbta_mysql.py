@@ -4,7 +4,7 @@ import MySQLdb as mdb
 import time
 from pprint import pprint
 
-cnx = mdb.connect(host='localhost', user='root', passwd="bingobingo", db='databaseproject')
+cnx = mdb.connect(host='localhost', user='root', passwd="", db='databaseproject')
 cursor = cnx.cursor()
 
 
@@ -61,7 +61,7 @@ class MBTAMySQL:
                         if res is None:
                             cursor.execute( "insert into TrainTrips (TripID, RouteId, VehicleId, TripHeadsign, InsertTime) VALUES (%s,%s,%s,%s,%s)", (trip_id, route_id, vehicle_id, trip_headsign, t0 ))  #  % vars()
                         already_trip = True
-                    cursor.execute( "select VehicleID from TrainLocations where VehicleID = (%s) and TripID = (%s)", (vehicle_id, trip_id))
+                    cursor.execute( "select VehicleID from TrainLocations where VehicleID = (%s)", [vehicle_id])
                     res = cursor.fetchone()
                     if res is None:
                         cursor.execute( "select TripID from TrainTrips where TripID = (%s) and VehicleID = (%s)", (trip_id, vehicle_id))

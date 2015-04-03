@@ -4,7 +4,7 @@ import time
 
 t0 = time.time()
 
-cnx = mdb.connect(host="localhost", user="root", passwd="bingobingo", db="databaseproject")
+cnx = mdb.connect(host="localhost", user="root", passwd="", db="databaseproject")
 cursor = cnx.cursor()
 
 class NextBusMySQL:
@@ -84,16 +84,14 @@ class NextBusMySQL:
                         slowness, affectedByLayover, is_delayed = None, None, None
                         if "slowness" in prediction:
                             slowness = prediction['slowness']
+                            is_delayed = True
                         else:
                             slowness = 0
+                            is_delayed = False
                         if "affectedByLayover" in prediction:
                             affectedByLayover = True
                         else:
                             affectedByLayover = False
-                        if "isDelayed" in prediction:
-                            is_delayed = True
-                        else:
-                            is_delayed = False
 
                         cursor.execute("select VehicleNumber from Busses WHERE VehicleNumber = (%s)", [vehicle])
                         res = cursor.fetchone()
