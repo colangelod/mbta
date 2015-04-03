@@ -4,8 +4,8 @@ import time
 
 t0 = time.time()
 
-con = mdb.connect(host="localhost", user="root", passwd="bingobingo", db="databaseproject")
-cursor = con.cursor()
+cnx = mdb.connect(host="localhost", user="root", passwd="bingobingo", db="databaseproject")
+cursor = cnx.cursor()
 
 class NextBusMySQL:
 
@@ -37,11 +37,6 @@ class NextBusMySQL:
                     res = cursor.fetchone()
                     if res is None:
                         cursor.execute("insert into Busses (VehicleNumber, RTag, BusTitle) VALUES (%s, %s, %s)", (vehicle_id, route_tag, title))
-                    '''cursor.execute("select VehicleNumber FROM Busses WHERE VehicleNumber = (%s) AND RTag != (%s)", (vehicle_id, route_tag))
-                    res = cursor.fetchone()
-                    if res is not None:
-                        print 'updated bus'
-                        cursor.execute( "update Busses set VehicleNumber = (%s), RTag = (%s), BusTitle = (%s) where VehicleNumber = (%s) and RTag != (%s)", (vehicle_id, route_tag, title, vehicle_id, route_tag) )'''
 
                     cursor.execute("select VehicleNumber FROM Locations WHERE VehicleNumber = (%s)", [vehicle_id])
                     res = cursor.fetchone()
@@ -84,12 +79,7 @@ class NextBusMySQL:
                         dir_tag = prediction['dirTag']
                         minutes = prediction['minutes']
                         block = prediction['block']
-                        cursor.execute("select VehicleNumber from Busses WHERE VehicleNumber = (%s)", [vehicle])
-                        res = cursor.fetchone()
-                        if res is not None:
-                            cursor.execute("insert into BusStopTimes (VehicleNumber, StopID, DirTAG, Seconds, InsertTime) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, dir_tag, seconds, t0))
-                     #   else:
-                          #  print "Failed to insert busstoptime for vehicleid %(vehicle)s -- stopid: %(stop_id)s dir_tag: %(dir_tag)s" % vars()
+
 
                         slowness, affectedByLayover, is_delayed = None, None, None
                         if "slowness" in prediction:
@@ -97,7 +87,7 @@ class NextBusMySQL:
                         else:
                             slowness = 0
                         if "affectedByLayover" in prediction:
-                            affectedByLayover = prediction['affectedByLayover']
+                            affectedByLayover = True
                         else:
                             affectedByLayover = False
                         if "isDelayed" in prediction:
@@ -108,28 +98,24 @@ class NextBusMySQL:
                         cursor.execute("select VehicleNumber from Busses WHERE VehicleNumber = (%s)", [vehicle])
                         res = cursor.fetchone()
                         if res is not None:
-                            cursor.execute("insert into BusStopTimes (VehicleNumber, StopID, DirTAG, Seconds, InsertTime) VALUES (%s,%s,%s,%s,%s)", (vehicle, stop_id, dir_tag, seconds, t0))
-                        else:
-                            print "Failed to insert busstoptime for vehicleid %(vehicle)s -- stopid: %(stop_id)s dir_tag: %(dir_tag)s" % vars()
+                            cursor.execute("select InsertTime from BusStopTimes WHERE VehicleNumber = (%s) and StopID = (%s)", (vehicle_id, stop_id))
+                            res = cursor.fetchone()
+                            if res is None:
+                                cursor.execute("insert into BusStopTimes (VehicleNumber, StopID, DirTAG, Seconds, InsertTime) VALUES (%s,%s,%s,%s,%s)", (vehicle_id, stop_id, dir_tag, seconds, t0))
+                            else:
+                                cursor.execute("update BusStopTimes set Seconds = (%s) where VehicleNumber = (%s) and StopID = (%s)", (seconds, vehicle_id, stop_id))
 
-                        if "affectedByLayover" in prediction:
-                            affectedByLayover = prediction['affectedByLayover']
-                        if "isDelayed" in prediction:
-                            is_delayed = True
-                        if slowness is not None or is_delayed is not None:
+                        if slowness is not False or is_delayed is not False:
                             cursor.execute("select VehicleNumber from BusDelays WHERE VehicleNumber = (%s) and StopID = (%s)", (vehicle_id, stop_id))
                             res = cursor.fetchone()
                             if res is None:
                                 cursor.execute("select VehicleNumber from Busses WHERE VehicleNumber = (%s)", [vehicle])
                                 res = cursor.fetchone()
-                                if res is None:
-                                    print 'woo'
+                                if res is not None:
                                     cursor.execute("insert into BusDelays (VehicleNumber, StopID, AffectedByLayover, IsDelayed, Slowness) VALUES (%s,%s,%s,%s,%s)", (vehicle_id, stop_id, affectedByLayover, is_delayed, slowness))
-                                    con.commit()
                             else:
                                 cursor.execute( "update BusDelays set AffectedByLayover = (%s), IsDelayed = (%s), Slowness = (%s) where VehicleNumber = (%s) and StopID = (%s)", (affectedByLayover, is_delayed, slowness, vehicle_id, stop_id) )
 
-                        #print vehicle, stop_id, dir_tag, seconds
-
-        con.commit()
+        cnx.commit()
+        print "NextBus transaction committed."
 

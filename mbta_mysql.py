@@ -30,23 +30,16 @@ class MBTAMySQL:
             res = cursor.fetchone()
             if res is None:
                 cursor.execute( "insert into TrainRoutes (RouteID, RouteName, ModeName) VALUES (%s,%s,%s)", (route_id, route_title, mode_name))
-            #print route_id, route_title
+
 
             for direction in directions:
                 direction_id = direction['direction_id']
                 direction_name = direction['direction_name']
                 trips = direction['trip']
 
-
-                #print direction_id, direction_name
-
-
-
             for prediction in predictions:
 
-
                 already_trip = False
-                #pprint(prediction)
                 direction_name = prediction['direction_name']
                 route_id = prediction['route_id']
                 route_type = prediction['route_type']
@@ -71,7 +64,10 @@ class MBTAMySQL:
                     cursor.execute( "select VehicleID from TrainLocations where VehicleID = (%s) and TripID = (%s)", (vehicle_id, trip_id))
                     res = cursor.fetchone()
                     if res is None:
-                        cursor.execute( "insert into TrainLocations (TrainLAT, TrainLon,TripID,RouteId,VehicleID) VALUES (%s,%s,%s,%s,%s)", (vehicle_lat,vehicle_lon,trip_id,route_id,vehicle_id) )#  % vars()
+                        cursor.execute( "select TripID from TrainTrips where TripID = (%s) and VehicleID = (%s)", (trip_id, vehicle_id))
+                        res = cursor.fetchone()
+                        if res is not None:
+                            cursor.execute( "insert into TrainLocations (TrainLAT, TrainLon,TripID,RouteId,VehicleID) VALUES (%s,%s,%s,%s,%s)", (vehicle_lat,vehicle_lon,trip_id,route_id,vehicle_id) )#  % vars()
                     else:
                         cursor.execute( "update TrainLocations set TrainLAT = (%s), TrainLON = (%s) where TripID = (%s) and VehicleID = (%s)", (vehicle_lat,vehicle_lon,trip_id,vehicle_id) )
                     stop_ids = []
@@ -85,9 +81,9 @@ class MBTAMySQL:
                             cursor.execute( "select TripID from TripStops where TripID = (%s) and StopID = (%s)", (trip_id, stop_id))
                             res = cursor.fetchone()
                             if res is None:
-                                cursor.execute( "insert into TripStops (TripID, StopID, StopName, StopSequence, PredAway) VALUES (%s,%s,%s,%s,%s)",(trip_id,stop_id,stop_name,stop_sequence,pre_away))  # % vars()
+                                cursor.execute( "insert into TripStops (TripID, StopID, StopName, StopSequence, PredAway) VALUES (%s,%s,%s,%s,%s)",(trip_id,stop_id,stop_name,stop_sequence,pre_away))
                             else:
-                                cursor.execute( "update TripStops set StopID = (%s), StopName = (%s), StopSequence = (%s), PredAway = (%s) where TripID = (%s)", (stop_id,stop_name,stop_sequence,pre_away, trip_id) )
+                                cursor.execute( "update TripStops set StopID = (%s), StopName = (%s), StopSequence = (%s), PredAway = (%s) where TripID = (%s) and StopID = (%s)", (stop_id,stop_name,stop_sequence,pre_away,trip_id,stop_id ))
             route_id = alerts['route_id']
             route_name = alerts['route_name']
             for alert in alerts['alerts']:
@@ -97,6 +93,6 @@ class MBTAMySQL:
                 res = cursor.fetchone()
                 if res is None:
                     cursor.execute( "insert into Alerts (RouteID, AlertID, AlertText) values (%s,%s,%s)", (route_id, alert_id, alert_text))
-            print "\n\n"
 
         cnx.commit()
+        print "MBTA transaction committed."

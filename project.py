@@ -27,6 +27,18 @@ def query4():   #see trip info relating to train routeid
     [routeID],
     ("Route ID", "Route Name", "Mode Name", "Trip ID", "Headsign"))
 
+def query5():   #see all busses for a particular route (eg 23) and if they are delayed and by how much
+    busTitle = mdb.escape_string(raw_input("Enter a bus title: "))
+    get_and_print("Select Busses.BusTitle as Route, BusStops.StopName as StopName, BusDelays.isDelayed as isDelayed, BusDelays.Slowness from ((Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) inner join BusStops on BusStops.StopID = BusStopTimes.StopID) left join BusDelays on BusDelays.VehicleNumber = Busses.VehicleNumber where Busses.BusTitle = (%s)",
+    [busTitle],
+    ("Route ID", "Stop Name", "Delayed?", "Slowness"))
+
+def query6():   #see train alerts
+    routeID = mdb.escape_string(raw_input("Enter a train route ID: "))
+    get_and_print("Select Alerts.RouteID as Route,Alerts.AlertText as TextMessage from Alerts where RouteID = (%s)",
+    [routeID],
+    ("Route", "Alert"))
+
 def main():
     print "Do some stuff? Do some stuff. 0 for exit"
     try:
@@ -62,7 +74,9 @@ ALLOWED_ACTIONS = {
     1: query1,
     2: query2,
     3: query3,
-    4: query4
+    4: query4,
+    5: query5,
+    6: query6
 }
 
 if __name__ == '__main__':
