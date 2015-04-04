@@ -69,7 +69,7 @@ class MBTAMySQL:
                         if res is not None:
                             cursor.execute( "insert into TrainLocations (TrainLAT, TrainLon,TripID,RouteId,VehicleID) VALUES (%s,%s,%s,%s,%s)", (vehicle_lat,vehicle_lon,trip_id,route_id,vehicle_id) )#  % vars()
                     else:
-                        cursor.execute( "update TrainLocations set TrainLAT = (%s), TrainLON = (%s) where TripID = (%s) and VehicleID = (%s)", (vehicle_lat,vehicle_lon,trip_id,vehicle_id) )
+                        cursor.execute( "update TrainLocations set TrainLAT = (%s), TrainLON = (%s), TripID = (%s) where VehicleID = (%s)", (vehicle_lat,vehicle_lon,trip_id,vehicle_id) )
                     stop_ids = []
                     for stop in prediction['stop']:
                         pre_away = stop['pre_away']
