@@ -1,7 +1,7 @@
 import MySQLdb as mdb
 from tabulate import tabulate
 
-cnx = mdb.connect(host="localhost", user="root", passwd="", db="databaseproject")
+cnx = mdb.connect(host="localhost", user="root", passwd="bingobingo", db="databaseproject")
 cursor = cnx.cursor()
 
 def query1():
