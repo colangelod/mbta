@@ -9,9 +9,9 @@ def query1():
         ("Trip ID", "Line", "Vehicle Number", "Destination"))
 def query2():
     routeID = mdb.escape_string(raw_input("Enter a train route ID (Red, Blue, Orange): "))
-    get_and_print("Select TrainRoutes.RouteName as RouteName , TrainRoutes.ModeName, TrainTrips.TripID, TrainTrips.TripHeadsign from TrainRoutes inner join TrainTrips on TrainRoutes.RouteId= TrainTrips.RouteID where TrainRoutes.RouteID = %s",
+    get_and_print("Select TrainRoutes.RouteName as RouteName, TrainTrips.VehicleID,  TrainRoutes.ModeName, TrainTrips.TripID, TrainTrips.TripHeadsign from TrainRoutes inner join TrainTrips on TrainRoutes.RouteId= TrainTrips.RouteID where TrainRoutes.RouteID = %s",
                   [routeID],
-                  ("Line", "Mode", "Trip ID", "Destination"))
+                  ("Line", "Vehicle Number", "Mode", "Trip ID", "Destination"))
 
 
 def query3(): #see all active stops (being serviced by busses on the road)
@@ -34,9 +34,9 @@ def query5():
 
 def query6():   #see all busses for a particular route (eg 23) and if they are delayed and by how much
     busTitle = mdb.escape_string(raw_input("Enter a bus title: "))
-    get_and_print("Select Busses.BusTitle as Route, BusStops.StopName as StopName, BusDelays.isDelayed as isDelayed, BusDelays.Slowness from ((Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) inner join BusStops on BusStops.StopID = BusStopTimes.StopID) left join BusDelays on BusDelays.VehicleNumber = Busses.VehicleNumber where Busses.BusTitle = (%s)",
+    get_and_print("Select Busses.BusTitle as Route, Busses.VehicleNumber,  BusStops.StopName as StopName, BusDelays.isDelayed as isDelayed, BusDelays.Slowness from ((Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) inner join BusStops on BusStops.StopID = BusStopTimes.StopID) left join BusDelays on BusDelays.VehicleNumber = Busses.VehicleNumber where Busses.BusTitle = (%s)",
     [busTitle],
-    ("Route ID", "Stop Name", "Delayed?", "Slowness"))
+    ("Route ID", "Vehicle Number", "Stop Name", "Delayed?", "Slowness"))
 
 def query7():   #see train alerts
     routeID = mdb.escape_string(raw_input("Enter a train route ID: "))
@@ -65,8 +65,8 @@ def main():
     print "5 - See busses serving a particular stop, including scheduled and predicted arrival time(s)."
     print "6 - See all stops for a particular route number and associated delays."
     print "7 - See all alerts for a train line (Red, Blue, Orange)."
-    print "8 - See the location of a given bus."
-    print "9 - See the location of a given train."
+    print "8 - See the location of a given bus vehicle number (number obtained from 6)."
+    print "9 - See the location of a given train vehicle number (number obtained from 2)."
     try:
         answer = int(raw_input("Enter the number corresponding to your requested action: "))
     except Exception:
