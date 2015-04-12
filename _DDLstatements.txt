@@ -1,0 +1,126 @@
+CREATE DATABASE databaseproject;
+USE databaseproject;
+
+CREATE TABLE IF NOT EXISTS `TrainRoutes` (
+  `RouteID` VARCHAR(20) NOT NULL,
+  `RouteName` VARCHAR(100) ,
+  `ModeName` VARCHAR(45) ,
+  PRIMARY KEY (`RouteID`));
+
+CREATE TABLE IF NOT EXISTS `Alerts` (
+  `RouteID` VARCHAR(20) NOT NULL,
+  `AlertID` INT(11) NOT NULL,
+  `AlertText` MEDIUMTEXT ,
+  `AlertRouteID` INT(11) ,
+  `AlertRouteName` VARCHAR(45) ,
+  PRIMARY KEY (`RouteID`, `AlertID`),
+  CONSTRAINT `fk_Alerts_TrainRoutes1`
+    FOREIGN KEY (`RouteID`)
+    REFERENCES `TrainRoutes` (`RouteID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+CREATE TABLE IF NOT EXISTS `BusStops` (
+  `StopID` VARCHAR(10) NOT NULL,
+  `StopName` VARCHAR(100) ,
+  `StopLAT` FLOAT ,
+  `StopLON` FLOAT ,
+  PRIMARY KEY (`StopID`));
+
+CREATE TABLE IF NOT EXISTS `Busses` (
+  `VehicleNumber` INT(11) NOT NULL,
+  `RTag` VARCHAR(15) NOT NULL,
+  `BusTitle` VARCHAR(70) ,
+  PRIMARY KEY (`VehicleNumber`, `RTag`));
+
+
+CREATE TABLE IF NOT EXISTS `BusStopTimes` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `VehicleNumber` INT(11) NOT NULL,
+  `StopID` VARCHAR(10) NOT NULL,
+  `DirTAG` VARCHAR(45) ,
+  `Seconds` INT(11) ,
+  `InsertTime` FLOAT NOT NULL,
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `fk_BusStopTimes_BusStops1`
+    FOREIGN KEY (`StopID`)
+    REFERENCES `BusStops` (`StopID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_BusStopTimes_Busses`
+    FOREIGN KEY (`VehicleNumber`)
+    REFERENCES `Busses` (`VehicleNumber`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+CREATE TABLE IF NOT EXISTS `BusDelays` (
+  `VehicleNumber` INT(11) NOT NULL,
+  `StopID` VARCHAR(10) NOT NULL,
+  `AffectedByLayover` TINYINT(1) ,
+  `IsDelayed` TINYINT(1) ,
+  `Slowness` FLOAT ,
+  PRIMARY KEY (`VehicleNumber`, `StopID`),
+  CONSTRAINT `fk_BusDelays_BusStopTimes1`
+    FOREIGN KEY (`StopID`)
+    REFERENCES `BusStopTimes` (`StopID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_BusDelays_Busses1`
+    FOREIGN KEY (`VehicleNumber`)
+    REFERENCES `Busses` (`VehicleNumber`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+CREATE TABLE IF NOT EXISTS `Locations` (
+  `VehicleNumber` INT(11) NOT NULL,
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `BusLAT` FLOAT ,
+  `BusLON` FLOAT ,
+  `Predictable` TINYINT(1) ,
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `fk_Locations_BusStopTimes1`
+    FOREIGN KEY (`VehicleNumber`)
+    REFERENCES `Busses` (`VehicleNumber`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+CREATE TABLE IF NOT EXISTS `TrainTrips` (
+  `TripID` VARCHAR(10) NOT NULL,
+  `RouteID` VARCHAR(20) NOT NULL,
+  `VehicleID` INT(11) NOT NULL,
+  `TripHeadsign` VARCHAR(100) ,
+  `InsertTime` FLOAT NOT NULL,
+  PRIMARY KEY (`TripID`, `RouteID`, `VehicleID`),
+  CONSTRAINT `fk_TrainTrips_TrainRoutes1`
+    FOREIGN KEY (`RouteID`)
+    REFERENCES `TrainRoutes` (`RouteID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+CREATE TABLE IF NOT EXISTS `TrainLocations` (
+  `TrainLAT` FLOAT ,
+  `TrainLON` FLOAT ,
+  `TripID` VARCHAR(10) NOT NULL,
+  `RouteID` VARCHAR(20) NOT NULL,
+  `VehicleID` INT(11) NOT NULL,
+  PRIMARY KEY (`TripID`, `RouteID`, `VehicleID`),
+  CONSTRAINT `fk_TrainLocations_TrainTrips1`
+    FOREIGN KEY (`TripID` , `RouteID` , `VehicleID`)
+    REFERENCES `TrainTrips` (`TripID` , `RouteID` , `VehicleID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+CREATE TABLE IF NOT EXISTS `TripStops` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `TripID` VARCHAR(10) NOT NULL,
+  `StopID` VARCHAR(100) NOT NULL,
+  `StopName` VARCHAR(100) ,
+  `StopSequence` INT(11) ,
+  `PredAway` INT(11) ,
+  PRIMARY KEY (`ID`),
+  CONSTRAINT `fk_TripStops_TrainTrips1`
+    FOREIGN KEY (`TripID`)
+    REFERENCES `TrainTrips` (`TripID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+

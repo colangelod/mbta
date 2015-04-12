@@ -32,25 +32,33 @@ def query5():
     [stopID],
     ("Vehicle Number", "Route Number", "Stop ID", "Stop Name", "Scheduled Arrival (sec)", "Slowness Multiplier", "Estimated Arrival (sec)"))
 
-def query6():   #see all busses for a particular route (eg 23) and if they are delayed and by how much
+def query6():
     busTitle = mdb.escape_string(raw_input("Enter a bus title: "))
     get_and_print("Select Busses.BusTitle as Route, Busses.VehicleNumber,  BusStops.StopName as StopName, BusDelays.isDelayed as isDelayed, BusDelays.Slowness from ((Busses Inner join BusStopTimes on Busses.VehicleNumber = BusStopTimes.VehicleNumber ) inner join BusStops on BusStops.StopID = BusStopTimes.StopID) left join BusDelays on BusDelays.VehicleNumber = Busses.VehicleNumber where Busses.BusTitle = (%s)",
     [busTitle],
     ("Route ID", "Vehicle Number", "Stop Name", "Delayed?", "Slowness"))
 
-def query7():   #see train alerts
+def query7():
     routeID = mdb.escape_string(raw_input("Enter a train route ID: "))
     get_and_print("Select Alerts.RouteID as Route,Alerts.AlertText as TextMessage from Alerts where RouteID = (%s)",
     [routeID],
     ("Route", "Alert"))
 
 def query8():
+        query_and_print("select RTag as Route, VehicleNumber as Vechicle from Busses",
+        ("Route", "Vehicle Number"))
+
+def query9():
+    query_and_print("select RouteID as Route, TripHeadsign as Headsign, VehicleID as Vehicle from TrainTrips",
+        ("Line", "Destination", "Vehicle ID"))
+
+def query10():
     vehiclenum = mdb.escape_string(raw_input("Enter a bus vehicle number: "))
     get_and_print("Select Locations.VehicleNumber as BusVehicleNumber, Busses.BusTitle as BusName,  Locations.BusLAT as BusLAT, Locations.BusLON as BusLON from Locations left Join Busses on Busses.VehicleNumber = Locations.VehicleNumber where Busses.VehicleNumber = (%s)",
     [vehiclenum],
     ("Vehicle Number", "Bus Number", "Bus Latitude", "Bus Longitude"))
 
-def query9():
+def query11():
     vehiclenum = mdb.escape_string(raw_input("Enter a train vehicle number: "))
     get_and_print("Select distinct TrainLocations.VehicleID as TrainVehicleID, TrainTrips.TripHeadsign as TripName, TrainLocations.TrainLAT as TrainLAT, TrainLocations.TrainLON as TrainLON from (TrainLocations inner join TrainTrips on TrainLocations.VehicleID = TrainTrips.VehicleID) where TrainLocations.VehicleID = (%s)",
     [vehiclenum],
@@ -105,8 +113,11 @@ ALLOWED_ACTIONS = {
     6: query6,
     7: query7,
     8: query8,
-    9: query9
+    9: query9,
+    10: query10,
+    11: query11
 }
 
 if __name__ == '__main__':
     main()
+
