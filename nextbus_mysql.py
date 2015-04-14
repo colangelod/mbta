@@ -4,7 +4,7 @@ import time
 
 t0 = time.time()
 
-cnx = mdb.connect(host="localhost", user="root", passwd="bingobingo", db="databaseproject")
+cnx = mdb.connect(host="localhost", user="root", passwd="", db="databaseproject")
 cursor = cnx.cursor()
 
 class NextBusMySQL:
