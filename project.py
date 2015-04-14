@@ -4,7 +4,10 @@ from tabulate import tabulate
 cnx = mdb.connect(host="localhost", user="root", passwd="bingobingo", db="databaseproject")
 cursor = cnx.cursor()
 
-def query1():
+def query66():
+    query_and_print("Select * from ((Select TrainRoutes.RouteName as maxRouteTime from (TrainRoutes inner join TrainTrips on TrainTrips.RouteID = TrainRoutes.RouteID) inner join TripStops on TripStops.TripID = TrainTrips.TripID where TripStops.PredAway = (Select Max(TripStops.PredAway) as maxPredAway from TripStops inner join TrainTrips on TripStops.TripID = TrainTrips.TripID inner join TrainRoutes on TrainRoutes.RouteID = TrainTrips.RouteID ))  as MaxRouteName, (Select TrainRoutes.RouteName  as minRouteTime from (TrainRoutes inner join TrainTrips on TrainTrips.RouteId = TrainRoutes.RouteID) inner join TripStops on TripStops.TripID = TrainTrips.TripID where TripStops.PredAway = (Select Min(TripStops.PredAway) as maxPredAway from TripStops inner join TrainTrips on TripStops.TripID = TrainTrips.TripID inner join TrainRoutes on TrainRoutes.RouteID = TrainTrips.RouteID)) as MinRouteName)",
+		[test])
+def query1()
     query_and_print("select TripID, RouteID, VehicleID, TripHeadsign from TrainTrips",
         ("Trip ID", "Line", "Vehicle Number", "Destination"))
 def query2():
@@ -115,7 +118,8 @@ ALLOWED_ACTIONS = {
     8: query8,
     9: query9,
     10: query10,
-    11: query11
+    11: query11,
+    66: query66
 }
 
 if __name__ == '__main__':
