@@ -12,7 +12,7 @@ def query15():
         ("Route Number", "Average slowness multiplier", "Max slowness multiplier", "Sum slowness multiplyer"))
 
 def query14():
-    query_and_print("Select Count(TrainTrips.TripID) from (((TrainTrips inner join TrainRoutes on TrainTrips.RouteID = TrainRoutes.RouteID) inner join Alerts on Alerts.RouteID = TrainRoutes.RouteID ) inner join TrainLocations on TrainRoutes.RouteID = TrainLocations.RouteID) inner join TripStops on TripStops.TripID = TrainTrips.TripID where Alerts.AlertID IS NOT NULL AND TrainLocations.TrainLAT = '42.3476' and TrainLocations.TrainLON = '-71.0747' and TripStops.PredAway = (Select TripStops.PredAway as pred from TripStops where TripStops.PredAway <= 1)",
+    query_and_print("Select Count(TrainTrips.TripID) from (((TrainTrips inner join TrainRoutes on TrainTrips.RouteID = TrainRoutes.RouteID) inner join Alerts on Alerts.RouteID = TrainRoutes.RouteID ) inner join TrainLocations on TrainRoutes.RouteID = TrainLocations.RouteID) inner join TripStops on TripStops.TripID = TrainTrips.TripID where Alerts.AlertID IS NOT NULL AND TrainLocations.TrainLAT = '42.3476' and TrainLocations.TrainLON = '-71.0747' and TripStops.PredAway = (Select TripStops.PredAway as pred from TripStops where TripStops.PredAway <= 1 limit 1)",
         ["Number of arriving trains with Alerts"])
 def query13():
     query_and_print( "SELECT TrainTrips.RouteID, TrainRoutes.RouteName, Alerts.AlertID, TrainLocations.TrainLAT, TrainLocations.TrainLON from TrainTrips INNER JOIN TrainRoutes ON TrainTrips.RouteID = TrainRoutes.RouteID LEFT JOIN Alerts ON TrainRoutes.RouteID = Alerts.RouteID INNER JOIN TrainLocations ON TrainTrips.VehicleID = TrainLocations.VehicleID WHERE Alerts.AlertID != '0' AND Alerts.AlertID != '70641' ORDER BY Alerts.AlertID ASC, RouteID ASC",
@@ -99,7 +99,7 @@ def main():
     print "13 - Complex Query 2 - See trains with an active alert and their locations, omitting a single known, long-standing alert."
     print "14 - Complex Query 3 - View the number of trains arriving in less than on eminute at a specific location with an active alert."
     print "15 - Complex Query 4 - View a list of busses with delays and information regarding how long they are delayed by."
-    print "16 - Complex Query 5 - View the bus stop with the highest delay and see how many busses are affected."
+    print "16 - Complex Query 5 - View the bus stop with the highest delay and see how many busses are currently delayed."
     try:
         answer = int(raw_input("Enter the number corresponding to your requested action: "))
     except Exception:
